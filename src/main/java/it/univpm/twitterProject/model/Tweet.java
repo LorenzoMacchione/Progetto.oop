@@ -1,24 +1,26 @@
 package it.univpm.twitterProject.model;
 
 public class Tweet {
-	
-	private String user;
+
+	private Long id;
 	private String text;
-	private String geo;
-	
-	public Tweet(String user, String text, String geo) {
+
+	public Tweet(Long id, String text) {
 		super();
-		this.user = user;
+		this.id = id;
 		this.text = text;
-		this.geo = geo;
 	}
 
-	public String getUser() {
-		return user;
+	public Tweet() {
+		super();
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getText() {
@@ -29,16 +31,4 @@ public class Tweet {
 		this.text = text;
 	}
 
-	public String getGeo() {
-		return geo;
-	}
-
-	public void setGeo(String geo) {
-		this.geo = geo;
-	}
-	
-	
-	
-	
-	
 }
