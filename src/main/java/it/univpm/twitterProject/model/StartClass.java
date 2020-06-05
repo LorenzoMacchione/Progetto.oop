@@ -1,7 +1,5 @@
 package it.univpm.twitterProject.model;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,9 +10,9 @@ import java.net.URLConnection;
 
 public class StartClass {
 
-	public static JSONObject downloadTweets() throws ParseException {
+	public static String downloadTweets() throws ParseException {
 
-		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=100";
+		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=1";
 		String data = "";
 		String line = "";
 
@@ -38,7 +36,6 @@ public class StartClass {
 			e.printStackTrace();
 		}
 
-		JSONObject obj = (JSONObject) JSONValue.parseWithException(data);
-		return obj;
+		return data;
 	}
 }
