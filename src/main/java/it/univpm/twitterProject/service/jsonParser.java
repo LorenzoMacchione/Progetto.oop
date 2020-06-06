@@ -24,11 +24,11 @@ public class jsonParser {
 			tweet.setText((String) ((JSONObject) o).get("text"));
 			jO =  (JSONObject) ((JSONObject) o).get("geo");
 			if (jO!=null) {
-				JSONArray ar1 = (JSONArray) jO.get("coordinates");
-				Double a1 = (Double)ar1.get(0);
-				Double a2 = (Double)ar1.get(1);
-				tweet.setGeo (a1,a2);
-				tweetsList.add(tweet);
+					JSONArray ar1 = (JSONArray) jO.get("coordinates");
+					Double a1 = (Double)ar1.get(0);
+					Double a2 = (Double)ar1.get(1);
+					tweet.setGeo (a1,a2);
+					tweetsList.add(tweet);				
 			}
 		}
 
@@ -36,4 +36,3 @@ public class jsonParser {
 	}
 
 }
-
