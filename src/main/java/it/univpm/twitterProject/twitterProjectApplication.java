@@ -11,6 +11,7 @@ public class twitterProjectApplication {
 
 	public static void main(String[] args) throws ParseException {
 		
+		StartClass.setAllCity();
 		StartClass.setAllTweet();
 		SpringApplication.run(twitterProjectApplication.class, args);
 	}

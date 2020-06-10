@@ -4,21 +4,28 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
-import it.univpm.twitterProject.service.jsonParser;
+import it.univpm.twitterProject.service.parser.jsonParser;
+import it.univpm.twitterProject.service.parser.parserCap;
+import it.univpm.twitterProject.service.parser.parserTweet;
 
 import java.util.ArrayList;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.io.FileReader;;
 
 public class StartClass {
 	
-	private static ArrayList <Tweet> AllTweet;
+	public static ArrayList <Tweet> AllTweet;
+	public static ArrayList <City> AllCity;
 
-	public static String downloadTweets() throws ParseException {
+
+	public static String downloadTweets(){
 
 		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=100";
 		String data = "";
@@ -47,9 +54,43 @@ public class StartClass {
 		return data;
 	}
 	
-	public static void setAllTweet () throws ParseException {
+	public static String downloadCity() {
+
+		String file = "JSONCapRegioni.txt";
+		String data = "";
+		String line = "";
 		
-		AllTweet = jsonParser.parserTweet(StartClass.downloadTweets());
+		try {
+			FileInputStream fin = new FileInputStream(file);
+			
+			try {
+				InputStreamReader inR = new InputStreamReader(fin);
+				BufferedReader buf = new BufferedReader(inR);
+
+				while ((line = buf.readLine()) != null) {
+					data += line;
+				}
+			} finally {
+				fin.close();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return data;
+	}
+	
+	public static void setAllTweet () throws ParseException {
+		parserTweet p = new parserTweet();
+		AllTweet = p.parsing(downloadTweets());
+	}
+	
+	public static void setAllCity () throws ParseException {
+		parserCap p = new parserCap();
+		AllCity = p.parsing(downloadCity());
 	}
 	
 	public static JSONObject getAllTweet () {
