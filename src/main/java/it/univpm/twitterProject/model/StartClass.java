@@ -50,7 +50,7 @@ public class StartClass {
 
 	public static String downloadCity() {
 
-		String file = "JSONCapRegioni.txt";
+		String file = "C:\\Users\\donat\\Desktop\\OOP\\twitterProject\\src\\main\\java\\it\\univpm\\twitterProject\\jsondata\\JSONCapRegioni.txt";
 		String data = "";
 		String line = "";
 
