@@ -1,9 +1,10 @@
 package it.univpm.twitterProject.model;
 
 public class City {
+	
 	private String Name;
 	private double[] coordinates;
-	
+
 	public City(String name, double[] coordinates) {
 		super();
 		Name = name;
@@ -25,7 +26,5 @@ public class City {
 	public void setCoordinates(double[] coordinates) {
 		this.coordinates = coordinates;
 	}
-	
-	
 
 }

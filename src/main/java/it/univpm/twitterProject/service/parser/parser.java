@@ -17,6 +17,7 @@ public class parser {
 		JSONObject jO = (JSONObject) obj;
 		return jO;
 	}
+	
 	/*
 	public ArrayList<T>  parserGen (String data) throws ParseException {
 		JSONParser parser = new JSONParser();

@@ -35,10 +35,10 @@ public class Tweet {
 	public void setGeo(double c1, double c2) {
 		this.geo[0] = c1;
 		this.geo[1] = c2;
-		}
-	
-	public double[] getGeo() {
-		return geo;
-		}
 	}
 
+	public double[] getGeo() {
+		return geo;
+	}
+	
+}
