@@ -9,7 +9,7 @@ import it.univpm.twitterProject.model.Tweet;
 
 public class parserTweet extends parser {
 
-	public ArrayList<Tweet> parsing(String data) {
+	public static ArrayList<Tweet> parsing(String data) {
 
 		Random gen = new Random();
 		ArrayList<Tweet> tweetsList = new ArrayList<Tweet>();

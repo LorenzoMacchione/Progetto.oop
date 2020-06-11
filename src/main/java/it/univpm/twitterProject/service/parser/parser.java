@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
 public class parser {
 
 	
-	public JSONObject parserJO (String Json) throws ParseException {
+	public static JSONObject parserJO (String Json) throws ParseException {
 		JSONParser parser = new JSONParser();
 		Object obj = parser.parse(Json);
 		JSONObject jO = (JSONObject) obj;

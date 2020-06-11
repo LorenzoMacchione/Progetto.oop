@@ -25,7 +25,7 @@ public class ServFilter {
 		return filtro;
 	}
 
-	public ArrayList<Tweet> filtering(Filter filtro, ArrayList<Tweet> tweetsList) {
+	public static ArrayList<Tweet> filtering(Filter filtro, ArrayList<Tweet> tweetsList) {
 
 		ArrayList<Tweet> filtredTweet = new ArrayList<Tweet>();
 
