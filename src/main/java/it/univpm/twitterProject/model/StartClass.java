@@ -21,7 +21,7 @@ public class StartClass {
 
 	public static String downloadTweets() {
 
-		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=100";
+		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=100&lang=it";
 		String data = "";
 		String line = "";
 
