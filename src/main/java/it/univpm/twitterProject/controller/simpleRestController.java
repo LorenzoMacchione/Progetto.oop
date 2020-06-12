@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import it.univpm.twitterProject.model.StartClass;
 import it.univpm.twitterProject.model.Tweet;
+import it.univpm.twitterProject.service.AppFilter;
 import it.univpm.twitterProject.service.ServFilter;
 import it.univpm.twitterProject.service.parser.parserTweet;
+import it.univpm.twitterProject.filter.FilterDistCap;
 import it.univpm.twitterProject.filter.Filter;
 
 @RestController
@@ -23,8 +25,12 @@ public class simpleRestController {
 	}
 	
 	@PostMapping("/getFilteredTweets")
-	public ArrayList<Tweet> getTweets(@RequestBody Filter filtro) {
-		return ServFilter.filtering(filtro, parserTweet.parsing(StartClass.downloadTweets()));
+	public JSONObject getTweets(@RequestBody String city) {
+		AppFilter af = new AppFilter ();
+		FilterDistCap f= new FilterDistCap(city, 100);
+		af.Filtring(f);
+		return af.getFilteredTweet();
 	}
-
 }
+
+

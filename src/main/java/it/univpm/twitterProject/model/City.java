@@ -4,6 +4,8 @@ public class City {
 	
 	private String Name;
 	private double[] coordinates;
+	
+	public City () {};
 
 	public City(String name, double[] coordinates) {
 		super();
