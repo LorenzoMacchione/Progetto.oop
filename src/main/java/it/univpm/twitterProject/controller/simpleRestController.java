@@ -38,10 +38,10 @@ public class simpleRestController {
 		Distanza d = new Distanza();
 		for (City c : StartClass.AllCity) {
 			JSONObject obj = new JSONObject();
+			obj.put("città", c.getName());
+			obj.put("n° tweet", 0);
 			for (Tweet t : StartClass.AllTweet) {
-				obj.put("città", c.getName());
-				obj.put("n° tweet", 0);
-				if (d.CalcDist(c.getCoordinates(), t.getGeo()) < (Integer) dist.get("dist")) {
+					if (d.CalcDist(c.getCoordinates(), t.getGeo()) < (Integer) dist.get("dist")) {
 					int i = (int) obj.get("n° tweet");
 					i++;
 					obj.put("n° tweet", i);
