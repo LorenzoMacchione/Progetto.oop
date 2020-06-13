@@ -92,6 +92,9 @@ public class StartClass {
 		JSONArray ar = new JSONArray();
 		for (Tweet t : AllTweet) {
 			JSONObject jTweet = new JSONObject();
+			jTweet.put("created_at", t.getCreated());
+			jTweet.put("name", t.getName());
+			jTweet.put("screen_name", t.getScreen_name());
 			jTweet.put("id", t.getId());
 			jTweet.put("text", t.getText());
 			jTweet.put("geo", t.getGeo());

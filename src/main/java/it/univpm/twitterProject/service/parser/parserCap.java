@@ -8,18 +8,13 @@ import it.univpm.twitterProject.model.City;
 
 public class parserCap extends parser {
 
-	public ArrayList<City> parsing(String data) {
+	public ArrayList<City> parsing(String data) throws ParseException {
 
 		ArrayList<City> cityList = new ArrayList<City>();
 		JSONObject jObj = new JSONObject();
+		jObj = parserJO(data);
 
-		try {
-			jObj = parserJO(data);
-		} catch (ParseException e) {
-		}
-		;
 		JSONArray ar = (JSONArray) jObj.get("CapoluoghiDiRegione");
-
 		for (Object o : ar) {
 			double[] d = new double[2];
 			d[0] = (Double) ((JSONObject) o).get("Latitudine");
@@ -30,5 +25,4 @@ public class parserCap extends parser {
 		}
 		return cityList;
 	}
-
 }

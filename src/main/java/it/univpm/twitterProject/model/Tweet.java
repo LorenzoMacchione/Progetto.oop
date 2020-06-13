@@ -8,8 +8,17 @@ public class Tweet {
 	private String text;
 	private String created;
 	private int followers;
-	
 	private double[] geo = new double[2];
+
+	public Tweet(Long id, String text) {
+		super();
+		this.id = id;
+		this.text = text;
+	}
+
+	public Tweet() {
+		super();
+	}
 
 	public String getName() {
 		return name;
@@ -43,16 +52,6 @@ public class Tweet {
 		this.followers = followers;
 	}
 
-	public Tweet(Long id, String text) {
-		super();
-		this.id = id;
-		this.text = text;
-	}
-
-	public Tweet() {
-		super();
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -77,5 +76,5 @@ public class Tweet {
 	public double[] getGeo() {
 		return geo;
 	}
-	
+
 }
