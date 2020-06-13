@@ -11,6 +11,7 @@ import it.univpm.twitterProject.model.StartClass;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.AppFilter;
 import it.univpm.twitterProject.service.Distanza;
+import it.univpm.twitterProject.stats.TweetForCity;
 import it.univpm.twitterProject.filter.FilterDistCap;
 
 @RestController
@@ -34,22 +35,8 @@ public class simpleRestController {
 
 	@PostMapping("/getStats")
 	public JSONArray getStats(@RequestBody JSONObject dist) {
-		JSONArray statCity = new JSONArray();
-		Distanza d = new Distanza();
-		for (City c : StartClass.AllCity) {
-			JSONObject obj = new JSONObject();
-			obj.put("città", c.getName());
-			obj.put("n° tweet", 0);
-			for (Tweet t : StartClass.AllTweet) {
-					if (d.CalcDist(c.getCoordinates(), t.getGeo()) < (Integer) dist.get("dist")) {
-					int i = (int) obj.get("n° tweet");
-					i++;
-					obj.put("n° tweet", i);
-				}
-			}
-			statCity.add(obj);
-		}
-		return statCity;
+		TweetForCity tfc = new TweetForCity((int) dist.get(dist));
+		return tfc.AppStat();
 	}
 
 }
