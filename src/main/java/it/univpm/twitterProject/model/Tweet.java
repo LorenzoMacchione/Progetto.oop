@@ -1,5 +1,11 @@
 package it.univpm.twitterProject.model;
 
+/**Classe i cui oggetti contengono i dati di un tweet
+ * scaricato da url
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+*/
+
 public class Tweet {
 
 	private Long id;

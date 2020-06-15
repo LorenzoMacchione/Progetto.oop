@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import it.univpm.twitterProject.model.StartClass;
 import it.univpm.twitterProject.service.AppFilter;
-import it.univpm.twitterProject.stats.TweetForCity;
-import it.univpm.twitterProject.filter.FilterDistCap;
+import it.univpm.twitterProject.utils.stats.TweetForCity;
+import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.utils.filter.FilterDistCap;
 
 @RestController
 public class simpleRestController {
