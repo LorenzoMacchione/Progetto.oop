@@ -12,7 +12,6 @@ public class Tweet {
 	private String name;
 	private String screen_name;
 	private String text;
-	private String created;
 	private int day;
 	private int month;
 	private int year;
