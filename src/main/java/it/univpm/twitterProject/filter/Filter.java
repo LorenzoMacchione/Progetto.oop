@@ -1,4 +1,5 @@
-package it.univpm.twitterProject.utils.filter;
+package it.univpm.twitterProject.filter;
+
 
 import it.univpm.twitterProject.model.Tweet;
 

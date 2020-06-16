@@ -4,7 +4,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.model.StartClass;
 
 @SpringBootApplication
 public class twitterProjectApplication {
@@ -13,6 +13,9 @@ public class twitterProjectApplication {
 
 		StartClass.setAllCity();
 		StartClass.setAllTweet();
+		StartClass.setAllDescriptor();
+		StartClass.setAllMetadata();
+		StartClass.setAllOperetor();
 		SpringApplication.run(twitterProjectApplication.class, args);
 
 	}

@@ -1,20 +1,19 @@
 package it.univpm.twitterProject.model;
 
-/**Classe i cui oggetti contengono i dati di un tweet
- * scaricato da url
- * @author Lorenzo Macchione
- * @author Donato Mariano
-*/
-
 public class Tweet {
 
-	private Long id;
+	private long id;
 	private String name;
 	private String screen_name;
 	private String text;
 	private String created;
-	private int followers;
-	private double[] geo = new double[2];
+	private long followers;
+	private Coord geo;
+
+	
+
+	
+
 
 	public Tweet(Long id, String text) {
 		super();
@@ -50,13 +49,14 @@ public class Tweet {
 		this.created = created;
 	}
 
-	public int getFollowers() {
+	public long getFollowers() {
 		return followers;
 	}
 
-	public void setFollowers(int followers) {
-		this.followers = followers;
+	public void setFollowers(long i) {
+		this.followers = i;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -74,13 +74,20 @@ public class Tweet {
 		this.text = text;
 	}
 
-	public void setGeo(double c1, double c2) {
-		this.geo[0] = c1;
-		this.geo[1] = c2;
+	public Coord getGeo() {
+		return geo;
 	}
 
-	public double[] getGeo() {
-		return geo;
+	public double getLat() {
+		return geo.getLat();
+	}
+	
+	public double getLon() {
+		return geo.getLon();
+	}
+	
+	public void setGeo(Coord geo) {
+		this.geo = geo;
 	}
 
 }

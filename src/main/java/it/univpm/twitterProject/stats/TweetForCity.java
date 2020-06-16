@@ -1,9 +1,11 @@
-package it.univpm.twitterProject.utils.stats;
+package it.univpm.twitterProject.stats;
 
+import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import it.univpm.twitterProject.database.StartClass;
-import it.univpm.twitterProject.model.City;
+
+import it.univpm.twitterProject.model.Coord;
+import it.univpm.twitterProject.model.StartClass;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.Distanza;
 
@@ -18,12 +20,12 @@ public class TweetForCity {
 
 	public JSONArray AppStat() {
 		Distanza d = new Distanza();
-		for (City c : StartClass.AllCity) {
+		for (Map.Entry<String, Coord> entry : StartClass.getAllCity().entrySet()) {
 			JSONObject obj = new JSONObject();
-			obj.put("città", c.getName());
+			obj.put("città", entry.getKey());
 			obj.put("n° tweet", 0);
-			for (Tweet t : StartClass.AllTweet) {
-				if (d.CalcDist(c.getCoordinates(), t.getGeo()) < dist) {
+			for (Tweet t : StartClass.getAllTweet()) {
+				if (d.CalcDist(entry.getValue(), t.getGeo()) < dist) {
 					int i = (int) obj.get("n° tweet");
 					i++;
 					obj.put("n° tweet", i);

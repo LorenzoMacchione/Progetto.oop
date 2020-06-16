@@ -1,10 +1,12 @@
 package it.univpm.twitterProject.service;
 
+import it.univpm.twitterProject.model.Coord;
+
 public class Distanza {
 
 	private double R = 6371;
 
-	public double CalcDist(double[] cCity, double[] cTweet) {
+	public double CalcDist(Coord coord1, Coord coord2) {
 
 		double[] cCityrad = new double[2];
 		double[] cTweetrad = new double[2];
@@ -12,10 +14,10 @@ public class Distanza {
 		double p, d;
 
 		// Converte i gradi in radianti
-		cCityrad[0] = cCity[0] * Math.PI / 180;
-		cCityrad[1] = cCity[1] * Math.PI / 180;
-		cTweetrad[0] = cTweet[0] * Math.PI / 180;
-		cTweetrad[1] = cTweet[1] * Math.PI / 180;
+		cCityrad[0] = coord1.getLat() * Math.PI / 180;
+		cCityrad[1] = coord1.getLon() * Math.PI / 180;
+		cTweetrad[0] = coord2.getLat() * Math.PI / 180;
+		cTweetrad[1] = coord2.getLon() * Math.PI / 180;
 
 		// Calcola l'angolo compreso fi
 		fi = Math.abs(cCityrad[1] - cTweetrad[1]);

@@ -5,6 +5,8 @@ import java.util.Random;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+
+import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.model.Tweet;
 
 public class parserTweet extends parser {
@@ -22,15 +24,23 @@ public class parserTweet extends parser {
 			tweet.setCreated((String) ((JSONObject) o).get("created_at"));
 			tweet.setId((Long) ((JSONObject) o).get("id"));
 			tweet.setText((String) ((JSONObject) o).get("text"));
-
+			
+			
 			JSONObject j1 = new JSONObject();
+			if(j1!=null) {
 			j1 = (JSONObject) ((JSONObject) o).get("user");
-			if (j1 != null) {
+			
 				String nn = (String) ((JSONObject) j1).get("name");
 				tweet.setName(nn);
 				String cr = (String) ((JSONObject) j1).get("screen_name");
 				tweet.setScreen_name(cr);
+				Long i = (Long) ((JSONObject) j1).get("followers_count");
+				tweet.setFollowers(i);
 			}
+
+
+			
+
 
 			JSONObject jO = new JSONObject();
 			jO = (JSONObject) ((JSONObject) o).get("geo");
@@ -38,7 +48,8 @@ public class parserTweet extends parser {
 				JSONArray ar1 = (JSONArray) jO.get("coordinates");
 				Double a1 = (Double) ar1.get(0);
 				Double a2 = (Double) ar1.get(1);
-				tweet.setGeo(a1, a2);
+				Coord co = new Coord(a1,a2);
+				tweet.setGeo(co);
 				tweetsList.add(tweet);
 			} else {
 				Double a2 = 36.7;
@@ -72,7 +83,8 @@ public class parserTweet extends parser {
 						}
 					}
 				}
-				tweet.setGeo(a1, a2);
+				Coord co = new Coord(a1,a2);
+				tweet.setGeo(co);
 				tweetsList.add(tweet);
 			}
 		}

@@ -1,12 +1,5 @@
 package it.univpm.twitterProject.model;
 
-/**Classe i cui oggetti contengono i dati di una città
- * utilizzati per l'implementazione di geo nei tweet
- * @author Lorenzo Macchione
- * @author Donato Mariano
-*/
-
-
 public class City {
 	
 	private String Name;
