@@ -30,6 +30,5 @@ public class Distanza {
 		d = p * R;
 
 		return (d);
-
 	}
 }

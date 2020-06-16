@@ -1,7 +1,9 @@
-package it.univpm.twitterProject.model;
-
+package it.univpm.twitterProject.database;
 
 import org.json.simple.parser.ParseException;
+import it.univpm.twitterProject.model.Coord;
+import it.univpm.twitterProject.model.Metadata;
+import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.parser.parserCap;
 import it.univpm.twitterProject.service.parser.parserTweet;
 import java.util.ArrayList;
@@ -17,14 +19,10 @@ import java.net.URLConnection;
 public class StartClass {
 
 	private static ArrayList<Tweet> AllTweet;
-	private static ArrayList<Metadata> AllMetadata=new ArrayList<Metadata>();
-	private static ArrayList<String> AllDescriptor=new ArrayList<String>();
-	private static ArrayList<String> AllOperetor=new ArrayList<String>();
+	private static ArrayList<Metadata> AllMetadata = new ArrayList<Metadata>();
+	private static ArrayList<String> AllDescriptor = new ArrayList<String>();
+	private static ArrayList<String> AllOperetor = new ArrayList<String>();
 	private static HashMap<String, Coord> AllCity;
-	
-	
-	
-	
 
 	public static ArrayList<String> getAllDescriptor() {
 		return AllDescriptor;
@@ -34,7 +32,7 @@ public class StartClass {
 		AllDescriptor.add("$not");
 		AllDescriptor.add("$in");
 		AllDescriptor.add("$ni");
-		}
+	}
 
 	public static ArrayList<String> getAllOperetor() {
 		return AllOperetor;
@@ -53,15 +51,14 @@ public class StartClass {
 	}
 
 	public static void setAllMetadata() {
-		AllMetadata.add(new Metadata("id","long","Codice identificativo dell'autore del tweet"));
-		AllMetadata.add(new Metadata("name","String","Nome dell'autore del tweet"));
-		AllMetadata.add(new Metadata("screen_name","String","Nickname dell'autore del tweet"));
-		AllMetadata.add(new Metadata("text","String",""));
-		AllMetadata.add(new Metadata("created","String","Data e ora di crrezione del tweet"));
-		AllMetadata.add(new Metadata("followers","long","Numero di followers dell'autore del tweet"));
-		AllMetadata.add(new Metadata("lat","double","Latitudine corrispondente a dove è stato generato il tweet"));
-		AllMetadata.add(new Metadata("lon","double","Longitudine corrispondente a dove è stato generato il tweet"));
-
+		AllMetadata.add(new Metadata("id", "long", "Codice identificativo dell'autore del tweet"));
+		AllMetadata.add(new Metadata("name", "String", "Nome dell'autore del tweet"));
+		AllMetadata.add(new Metadata("screen_name", "String", "Nickname dell'autore del tweet"));
+		AllMetadata.add(new Metadata("text", "String", ""));
+		AllMetadata.add(new Metadata("created", "String", "Data e ora di crrezione del tweet"));
+		AllMetadata.add(new Metadata("followers", "long", "Numero di followers dell'autore del tweet"));
+		AllMetadata.add(new Metadata("lat", "double", "Latitudine corrispondente a dove è stato generato il tweet"));
+		AllMetadata.add(new Metadata("lon", "double", "Longitudine corrispondente a dove è stato generato il tweet"));
 	}
 
 	public static String downloadTweets() {
@@ -76,26 +73,24 @@ public class StartClass {
 			try {
 				InputStreamReader inR = new InputStreamReader(in);
 				BufferedReader buf = new BufferedReader(inR);
-
 				while ((line = buf.readLine()) != null) {
 					data += line;
 				}
 			} finally {
 				in.close();
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return data;
 	}
 
 	public static String downloadTweets(String arg, int qt) {
 
-		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q="+arg+"&count="+qt+"&lang=it";
+		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=" + arg
+				+ "&count=" + qt + "&lang=it";
 		String data = "";
 		String line = "";
 
@@ -112,25 +107,22 @@ public class StartClass {
 			} finally {
 				in.close();
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return data;
 	}
-	
+
 	public static String downloadCity() {
 
-		String file = "src\\main\\java\\it\\univpm\\twitterProject\\jsondata\\JSONCapRegioni.txt";
+		String file = "src\\main\\java\\it\\univpm\\twitterProject\\database\\JSONCapRegioni.txt";
 		String data = "";
 		String line = "";
 
 		try {
 			FileInputStream fin = new FileInputStream(file);
-
 			try {
 				InputStreamReader inR = new InputStreamReader(fin);
 				BufferedReader buf = new BufferedReader(inR);
@@ -141,13 +133,11 @@ public class StartClass {
 			} finally {
 				fin.close();
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return data;
 	}
 
@@ -155,7 +145,7 @@ public class StartClass {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets());
 	}
-	
+
 	public static void setAllTweet(String arg, int qt) throws ParseException {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets(arg, qt));
@@ -165,18 +155,12 @@ public class StartClass {
 		parserCap p = new parserCap();
 		AllCity = p.parsing(downloadCity());
 	}
-	
-	
 
 	public static ArrayList<Tweet> getAllTweet() {
-		return AllTweet;}
-		
-	
+		return AllTweet;
+	}
 
 	public static HashMap<String, Coord> getAllCity() {
 		return AllCity;
 	}
-
-	
-
 }

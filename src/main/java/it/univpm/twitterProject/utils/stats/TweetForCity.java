@@ -1,11 +1,10 @@
-package it.univpm.twitterProject.stats;
+package it.univpm.twitterProject.utils.stats;
 
 import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
+import it.univpm.twitterProject.database.StartClass;
 import it.univpm.twitterProject.model.Coord;
-import it.univpm.twitterProject.model.StartClass;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.Distanza;
 
