@@ -57,7 +57,11 @@ public class StartClass {
 		AllMetadata.add(new Metadata("name", "String", "Nome dell'autore del tweet"));
 		AllMetadata.add(new Metadata("screen_name", "String", "Nickname dell'autore del tweet"));
 		AllMetadata.add(new Metadata("text", "String", ""));
-		AllMetadata.add(new Metadata("created", "String", "Data e ora di crrezione del tweet"));
+		AllMetadata.add(new Metadata("day", "int", "Numero del giorno nel mese"));
+		AllMetadata.add(new Metadata("month", "int", "Numero del mese"));
+		AllMetadata.add(new Metadata("year", "int", "Anno"));
+		AllMetadata.add(new Metadata("hour", "int", "ora"));
+		AllMetadata.add(new Metadata("minute", "int", "Minuto"));
 		AllMetadata.add(new Metadata("followers", "long", "Numero di followers dell'autore del tweet"));
 		AllMetadata.add(new Metadata("lat", "double", "Latitudine corrispondente a dove è stato generato il tweet"));
 		AllMetadata.add(new Metadata("lon", "double", "Longitudine corrispondente a dove è stato generato il tweet"));
