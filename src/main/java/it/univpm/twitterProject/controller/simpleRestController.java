@@ -52,28 +52,9 @@ public class simpleRestController {
 		return af.getFilteredTweet();
 	}
 
-	@GetMapping("/Stat")
-	public JSONObject stat(@RequestParam(name = "field") String field, @RequestParam(name = "filter", defaultValue = "no filter")String filter) throws ParseException {
-		ArrayList<Tweet> filteredTweet = new ArrayList<Tweet>();
-		if (filter.equals("no filter")) {
-		filteredTweet = StartClass.getAllTweet();
-		}else 
-		{
-			AppFilter af = new AppFilter();
-			GenericFilterTweet gft = new GenericFilterTweet(filter);
-			af.Filtring(gft);
-			filteredTweet =af.getFilteredTweet();
-		}
-		
-		
-		
-		StatNumb<Tweet> sn= new StatNumb<Tweet>(filteredTweet,field);
-		
-		
-		return sn.getStatJo();
-	}
 	
-	@GetMapping("/StatMultiField")
+	
+	@GetMapping("/Stat")
 	public JSONArray stat(@RequestParam(name = "field") JSONArray field, @RequestParam(name = "filter", defaultValue = "no filter")String filter) throws ParseException {
 		ArrayList<Tweet> filteredTweet = new ArrayList<Tweet>();
 		ArrayList <String> multiField = new ArrayList <String>(); 
