@@ -44,6 +44,8 @@ public class StartClass {
 		AllOperetor.add("$lt");
 		AllOperetor.add("$lte");
 		AllOperetor.add("$bt");
+		AllOperetor.add("$cc");
+		AllOperetor.add("$cp");
 	}
 
 	public static ArrayList<Metadata> getAllMetadata() {
@@ -59,6 +61,8 @@ public class StartClass {
 		AllMetadata.add(new Metadata("followers", "long", "Numero di followers dell'autore del tweet"));
 		AllMetadata.add(new Metadata("lat", "double", "Latitudine corrispondente a dove è stato generato il tweet"));
 		AllMetadata.add(new Metadata("lon", "double", "Longitudine corrispondente a dove è stato generato il tweet"));
+		AllMetadata.add(new Metadata("geo","Coord","coordinate"));
+
 	}
 
 	public static String downloadTweets() {
@@ -155,6 +159,8 @@ public class StartClass {
 		parserCap p = new parserCap();
 		AllCity = p.parsing(downloadCity());
 	}
+	
+	
 
 	public static ArrayList<Tweet> getAllTweet() {
 		return AllTweet;

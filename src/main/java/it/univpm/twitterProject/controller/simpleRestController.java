@@ -39,31 +39,18 @@ public class simpleRestController {
 		StartClass.setAllTweet(arg, qt);
 	}
 
-	@GetMapping("getFilteredTweets")
-	public ArrayList<Tweet> getFilteredTweets(@RequestParam(name = "filter", defaultValue = "null") Filter f) {
-		AppFilter af = new AppFilter();
-		af.Filtring(f);
-		return af.getFilteredTweet();
-	}
+	
 
 	@GetMapping("/data")
-	public ArrayList<Tweet> data(@RequestParam(name = "filter") String f) throws ParseException {
+	public ArrayList<Tweet> data (@RequestParam(name = "filter", defaultValue = "no filter") String f) throws ParseException {
+		if (f.equals("no filter")) {return StartClass.getAllTweet();}
 		AppFilter af = new AppFilter();
 		GenericFilterTweet gft = new GenericFilterTweet(f);
 		af.Filtring(gft);
 		return af.getFilteredTweet();
 	}
 
-	@PostMapping("/getFilteredTweets")
-	public ArrayList<Tweet> getTweets(@RequestBody JSONObject coor) {
-		AppFilter af = new AppFilter();
-		String city = (String) coor.get("city");
-		Integer dist = (Integer) coor.get("dist");
-		FilterDistCap f = new FilterDistCap(city, dist);
-		af.Filtring(f);
-		return af.getFilteredTweet();
-	}
-
+	
 	@PostMapping("/getStats")
 	public JSONArray getStats(@RequestBody JSONObject distanza) {
 		TweetForCity tfc = new TweetForCity((int) distanza.get("dist"));
