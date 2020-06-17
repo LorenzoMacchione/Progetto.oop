@@ -15,6 +15,8 @@ import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.model.Metadata;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.AppFilter;
+import it.univpm.twitterProject.utils.stats.Stat;
+import it.univpm.twitterProject.utils.stats.StatCity;
 import it.univpm.twitterProject.utils.stats.StatNumb;
 import it.univpm.twitterProject.utils.stats.TweetForCity;
 import it.univpm.twitterProject.database.StartClass;
@@ -33,6 +35,11 @@ public class simpleRestController {
 	@GetMapping("/getAllCity")
 	public HashMap<String, Coord> getCity() {
 		return StartClass.getAllCity();
+	}
+	
+	@GetMapping("/getAllMetadata")
+	public ArrayList<Metadata> getMetadata(){
+		return StartClass.getAllMetadata();
 	}
 
 	@GetMapping("/setTweet")
@@ -55,9 +62,10 @@ public class simpleRestController {
 	
 	
 	@GetMapping("/Stat")
-	public JSONArray stat(@RequestParam(name = "field") JSONArray field, @RequestParam(name = "filter", defaultValue = "no filter")String filter) throws ParseException {
+	public JSONArray stat(@RequestParam(name = "field") JSONArray field, @RequestParam(name = "filter", defaultValue = "no filter")String filter,@RequestParam(name = "dist", defaultValue = "-1")double dist) throws ParseException {
 		ArrayList<Tweet> filteredTweet = new ArrayList<Tweet>();
 		ArrayList <String> multiField = new ArrayList <String>(); 
+		Stat stat;
 		JSONArray out = new JSONArray();
 		if (filter.equals("no filter")) {
 		filteredTweet = StartClass.getAllTweet();
@@ -68,13 +76,21 @@ public class simpleRestController {
 			af.Filtring(gft);
 			filteredTweet =af.getFilteredTweet();
 		}
-		int i =0;
 		for (Object obj: field) {
 			multiField.add((String) obj);
 		}
 		for(String s: multiField) {	
-		StatNumb<Tweet> sn= new StatNumb<Tweet>(filteredTweet,s);
-		out.add(sn.getStatJo());
+			if(StartClass.getAllCity().containsKey(s))
+			{
+				if (dist<0) {
+					//aggiungere eccezione
+					}
+				
+				stat = new StatCity(filteredTweet,dist,s);
+			}else {
+					stat = new StatNumb<Tweet>(filteredTweet,s);
+			}
+		out.add(stat.getStatJo());
 		}
 		
 		return out;
