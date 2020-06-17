@@ -61,7 +61,7 @@ public class simpleRestController {
 
 	@GetMapping("/data")
 	public JSONObject data(@RequestParam(name = "filter", defaultValue = "no filter") String f)
-			throws FilterNotFoundException {
+			throws FilterNotFoundException, TweetsNotFoundException {
 
 		if (f.equals("no filter")) {
 			return StartClass.getAllTweetJO();
@@ -77,7 +77,7 @@ public class simpleRestController {
 	public JSONArray stat(@RequestParam(name = "field") JSONArray field,
 			@RequestParam(name = "filter", defaultValue = "no filter") String filter,
 			@RequestParam(name = "dist", defaultValue = "-1") double dist)
-			throws FilterNotFoundException, DataIllegalArgumentException {
+			throws FilterNotFoundException, DataIllegalArgumentException, TweetsNotFoundException {
 		ArrayList<Tweet> filteredTweet = new ArrayList<Tweet>();
 		ArrayList<String> multiField = new ArrayList<String>();
 		Stat stat;
