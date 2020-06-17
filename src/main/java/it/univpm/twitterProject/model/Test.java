@@ -10,7 +10,7 @@ public class Test {
 	private String descriptor = "";
 	private Object obj = null;
 
-	public Test(JSONObject jO) throws DataIllegalArgumentException{
+	public Test(JSONObject jO) throws DataIllegalArgumentException {
 		for (Metadata m : StartClass.getAllMetadata()) {
 			if (jO.get(m.getAlias()) != null) {
 				arg = m.getAlias();

@@ -3,7 +3,6 @@ package it.univpm.twitterProject.database;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-
 import it.univpm.twitterProject.exception.TweetsNotFoundException;
 import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.model.Metadata;
@@ -69,7 +68,7 @@ public class StartClass {
 		AllMetadata.add(new Metadata("followers", "long", "Numero di followers dell'autore del tweet"));
 		AllMetadata.add(new Metadata("lat", "double", "Latitudine corrispondente a dove è stato generato il tweet"));
 		AllMetadata.add(new Metadata("lon", "double", "Longitudine corrispondente a dove è stato generato il tweet"));
-		AllMetadata.add(new Metadata("geo","Coord","coordinate"));
+		AllMetadata.add(new Metadata("geo", "Coord", "coordinate"));
 
 	}
 
@@ -170,13 +169,13 @@ public class StartClass {
 			obj.put("followers", t.getFollowers());
 			obj.put("lat", t.getLat());
 			obj.put("lon", t.getLon());
-			
+
 			arr.add(obj);
 		}
 		ob.put("Tutti i tweet", arr);
 		return ob;
 	}
-	
+
 	public static JSONObject getAllMetadataJO() {
 		JSONObject ob = new JSONObject();
 		JSONArray arr = new JSONArray();
@@ -185,14 +184,13 @@ public class StartClass {
 			obj.put("alias", m.getAlias());
 			obj.put("type", m.getType());
 			obj.put("sourcefield", m.getSourceField());
-			
+
 			arr.add(obj);
 		}
 		ob.put("Tutti i metadata", arr);
 		return ob;
 	}
-	
-	
+
 	public static JSONObject getAllCityJO() {
 		JSONObject ob = new JSONObject();
 		ob.putAll(AllCity);
@@ -207,7 +205,7 @@ public class StartClass {
 	public static void setAllTweet(String arg, int qt) throws ParseException, TweetsNotFoundException {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets(arg, qt));
-		if(AllTweet.size() == 0) {
+		if (AllTweet.size() == 0) {
 			throw new TweetsNotFoundException("Non ho trovato Tweet");
 		}
 	}
@@ -216,8 +214,6 @@ public class StartClass {
 		parserCap p = new parserCap();
 		AllCity = p.parsing(downloadCity());
 	}
-	
-	
 
 	public static ArrayList<Tweet> getAllTweet() {
 		return AllTweet;

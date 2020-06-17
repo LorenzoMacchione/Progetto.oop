@@ -1,10 +1,11 @@
 package it.univpm.twitterProject.model;
 
-/**Classe i cui oggetti contengono i dati di un tweet
- * scaricato da url
+/**
+ * Classe i cui oggetti contengono i dati di un tweet scaricato da url
+ * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
+ */
 
 public class Tweet {
 
@@ -46,35 +47,56 @@ public class Tweet {
 		this.screen_name = screen_name;
 	}
 
-	
-
 	public void setCreated(String created) {
-		
 		String s = created.substring(4, 7);
 		switch (s) {
-		case "Jan" : month=1; break;
-		case "Feb" : month=2; break;
-		case "Mar" : month=3; break;
-		case "Apr" : month=4; break;
-		case "May" : month=5; break;
-		case "Jun" : month=6; break;
-		case "Jul" : month=7; break;
-		case "Aug" : month=8; break;
-		case "Sep" : month=9; break;
-		case "Oct" : month=10; break;
-		case "Nov" : month=11; break;
-		case "Dec" : month=12; break;
+		case "Jan":
+			month = 1;
+			break;
+		case "Feb":
+			month = 2;
+			break;
+		case "Mar":
+			month = 3;
+			break;
+		case "Apr":
+			month = 4;
+			break;
+		case "May":
+			month = 5;
+			break;
+		case "Jun":
+			month = 6;
+			break;
+		case "Jul":
+			month = 7;
+			break;
+		case "Aug":
+			month = 8;
+			break;
+		case "Sep":
+			month = 9;
+			break;
+		case "Oct":
+			month = 10;
+			break;
+		case "Nov":
+			month = 11;
+			break;
+		case "Dec":
+			month = 12;
+			break;
 		}
-		
+
 		s = created.substring(8, 10);
-		day= Integer.parseInt(s);
-		
+		day = Integer.parseInt(s);
+
 		s = created.substring(11, 13);
-		hour=Integer.parseInt(s);
-		
+		hour = Integer.parseInt(s);
+
 		s = created.substring(14, 16);
 		minute = Integer.parseInt(s);
-		
+
 		s = created.substring(26, 30);
 		year = Integer.parseInt(s);
 	}
@@ -138,6 +160,4 @@ public class Tweet {
 	public int getMinute() {
 		return minute;
 	}
-	
-	
 }

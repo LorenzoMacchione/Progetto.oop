@@ -1,10 +1,8 @@
 package it.univpm.twitterProject.service;
 
 import java.util.ArrayList;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
 import it.univpm.twitterProject.database.StartClass;
 import it.univpm.twitterProject.utils.filter.Filter;
 import it.univpm.twitterProject.model.Tweet;
@@ -38,7 +36,6 @@ public class AppFilter {
 			obj.put("followers", t.getFollowers());
 			obj.put("lat", t.getLat());
 			obj.put("lon", t.getLon());
-			
 			arr.add(obj);
 		}
 		ob.put("Tutti i tweet filtrati", arr);
