@@ -8,7 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
-
+import it.univpm.twitterProject.exception.FilterNotFoundException;
 import it.univpm.twitterProject.model.Test;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.FilterUtils;
@@ -22,7 +22,8 @@ public class GenericFilterTweet implements Filter {
 	private boolean or=false;
 
 	
-	public GenericFilterTweet(String s) throws ParseException {
+	public GenericFilterTweet(String s) throws FilterNotFoundException {
+		try {
 		JSONObject jO = parser.parserJO(s);
 		JSONArray ar = new JSONArray();
 		
@@ -46,7 +47,10 @@ public class GenericFilterTweet implements Filter {
 				singleTest = new Test(jO);
 			}
 		}
+	} catch (ParseException e) {
+		throw new FilterNotFoundException("Filter errato");
 	}
+}
 	
 	
  

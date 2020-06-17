@@ -4,6 +4,8 @@ package it.univpm.twitterProject.service;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.exception.DataIllegalArgumentException;
 import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.utils.filter.FilterDistCap;
 import it.univpm.twitterProject.utils.filter.FilterDistPoint;
@@ -30,7 +32,9 @@ public class FilterUtils {
 			return value.equals(th);
 		
 		else if(value instanceof Coord) {
+			try {
 			if (operator.equals("$cc")) {
+				
 			String city = (String) ((JSONObject) th).get("city");
 			double range = (long) ((JSONObject) th).get("range");
 			FilterDistCap fdc = new FilterDistCap(city,range);
@@ -41,9 +45,9 @@ public class FilterUtils {
 			double lat = (long) ((JSONObject) th).get("lat");
 			double lon = (long) ((JSONObject) th).get("lon");
 			FilterDistPoint fdp = new FilterDistPoint(range,lat,lon);
-			return fdp.app((Coord) value);
+			return fdp.app((Coord) value);}
 			
-		}
+		}catch(Exception e) {throw new DataIllegalArgumentException("Errore nell'immisione dei dati");} ;
 		}
 		else if (operator.equals("$bt")) {
 			Long valuec = ((Number) value).longValue();

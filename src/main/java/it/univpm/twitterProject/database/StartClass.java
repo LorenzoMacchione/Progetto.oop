@@ -1,6 +1,10 @@
 package it.univpm.twitterProject.database;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+
+import it.univpm.twitterProject.exception.TweetsNotFoundException;
 import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.model.Metadata;
 import it.univpm.twitterProject.model.Tweet;

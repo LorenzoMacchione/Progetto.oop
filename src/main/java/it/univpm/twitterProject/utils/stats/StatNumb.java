@@ -6,6 +6,12 @@ import java.util.Collection;
 
 import org.json.simple.JSONObject;
 
+import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.exception.DataIllegalArgumentException;
+import it.univpm.twitterProject.exception.IllegalCoordException;
+import it.univpm.twitterProject.exception.IllegalStringException;
+import it.univpm.twitterProject.model.Metadata;
+
 public class StatNumb<E> implements Stat {
 	
 	private String field;
@@ -15,7 +21,15 @@ public class StatNumb<E> implements Stat {
 	private double tot=0.0;
 	private int qtDati=0;
 	
-	public StatNumb (Collection<E> collect, String field) {
+	public StatNumb (Collection<E> collect, String field) throws DataIllegalArgumentException {
+		String s="";
+		for (Metadata x: StartClass.getAllMetadata()) {
+			if(x.getAlias().equals(field))
+				s =x.getType();
+		}
+		if (s.equals("String")) {throw new IllegalStringException();}
+		if (s.equals("Coord")) {throw new IllegalCoordException();}
+
 		Method m = null;
 		Object ob=null;
 		Double o=0.0;

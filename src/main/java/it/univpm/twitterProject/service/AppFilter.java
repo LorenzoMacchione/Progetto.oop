@@ -1,6 +1,10 @@
 package it.univpm.twitterProject.service;
 
 import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import it.univpm.twitterProject.database.StartClass;
 import it.univpm.twitterProject.utils.filter.Filter;
 import it.univpm.twitterProject.model.Tweet;

@@ -1,6 +1,7 @@
 package it.univpm.twitterProject.utils.filter;
 
 import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.exception.DataIllegalArgumentException;
 import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.service.Distanza;
 
@@ -13,6 +14,12 @@ public class FilterDistCap {
 
 	public FilterDistCap(String city, double range) {
 		super();
+		if (!StartClass.getAllCity().containsKey(city)) {
+			city = city.substring(0,1).toUpperCase()+city.substring(1);
+			if(!StartClass.getAllCity().containsKey(city)) {
+				throw new DataIllegalArgumentException("Città non presente tra i capoluoghi di regione");
+			}
+		}
 		this.city = city;
 		this.range = range;
 	}

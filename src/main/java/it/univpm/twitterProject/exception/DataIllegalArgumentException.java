@@ -4,7 +4,7 @@ public class DataIllegalArgumentException extends IllegalArgumentException {
 
 	private static final long serialVersionUID = 1L;
 
-	DataIllegalArgumentException(String text) {
+	public DataIllegalArgumentException(String text) {
 		super(text);
 	}
 }

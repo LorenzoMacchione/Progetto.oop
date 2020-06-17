@@ -5,6 +5,8 @@ import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +22,9 @@ import it.univpm.twitterProject.utils.stats.StatCity;
 import it.univpm.twitterProject.utils.stats.StatNumb;
 import it.univpm.twitterProject.utils.stats.TweetForCity;
 import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.exception.DataIllegalArgumentException;
+import it.univpm.twitterProject.exception.FilterNotFoundException;
+import it.univpm.twitterProject.exception.TweetsNotFoundException;
 import it.univpm.twitterProject.utils.filter.Filter;
 import it.univpm.twitterProject.utils.filter.FilterDistCap;
 import it.univpm.twitterProject.utils.filter.GenericFilterTweet;
@@ -63,18 +68,21 @@ public class simpleRestController {
 	
 
 	@GetMapping("/data")
-	public JSONObject data (@RequestParam(name = "filter", defaultValue = "no filter") String f) throws ParseException {
+	public JSONObject data (@RequestParam(name = "filter", defaultValue = "no filter") String f) throws FilterNotFoundException {
+		
 		if (f.equals("no filter")) {return StartClass.getAllTweetJO();}
 		AppFilter af = new AppFilter();
 		GenericFilterTweet gft = new GenericFilterTweet(f);
 		af.Filtring(gft);
 		return af.getAllFilteredTweetJO();
+		
 	}
 
 	
 	
 	@GetMapping("/Stat")
-	public JSONArray stat(@RequestParam(name = "field") JSONArray field, @RequestParam(name = "filter", defaultValue = "no filter")String filter,@RequestParam(name = "dist", defaultValue = "-1")double dist) throws ParseException {
+	public JSONArray stat(@RequestParam(name = "field") JSONArray field, @RequestParam(name = "filter", defaultValue = "no filter")String filter,
+			@RequestParam(name = "dist", defaultValue = "-1")double dist) throws FilterNotFoundException, DataIllegalArgumentException {
 		ArrayList<Tweet> filteredTweet = new ArrayList<Tweet>();
 		ArrayList <String> multiField = new ArrayList <String>(); 
 		Stat stat;
@@ -92,10 +100,21 @@ public class simpleRestController {
 			multiField.add((String) obj);
 		}
 		for(String s: multiField) {	
+			boolean b=false;
+			for (Metadata meta : StartClass.getAllMetadata()) {
+				if(meta.getAlias().equals(s)) {
+					b=true;
+				}
+			}
+			if (!(b||StartClass.getAllCity().containsKey(s))) {
+				s = s.substring(0,1).toUpperCase()+s.substring(1);
+				if (!StartClass.getAllCity().containsKey(s))
+					throw new DataIllegalArgumentException("Città o metadato non presente");
+			}
 			if(StartClass.getAllCity().containsKey(s))
 			{
-				if (dist<0) {
-					//aggiungere eccezione
+				if (dist<=0) {
+					throw new DataIllegalArgumentException("La distanza deve essere maggiore di 0");
 					}
 				
 				stat = new StatCity(filteredTweet,dist,s);

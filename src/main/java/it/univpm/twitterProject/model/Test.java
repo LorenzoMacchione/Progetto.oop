@@ -2,6 +2,7 @@ package it.univpm.twitterProject.model;
 
 import org.json.simple.JSONObject;
 import it.univpm.twitterProject.database.StartClass;
+import it.univpm.twitterProject.exception.DataIllegalArgumentException;
 
 public class Test {
 	private String arg = "";
@@ -9,7 +10,7 @@ public class Test {
 	private String descriptor = "";
 	private Object obj = null;
 
-	public Test(JSONObject jO) {
+	public Test(JSONObject jO) throws DataIllegalArgumentException{
 		for (Metadata m : StartClass.getAllMetadata()) {
 			if (jO.get(m.getAlias()) != null) {
 				arg = m.getAlias();
@@ -17,7 +18,7 @@ public class Test {
 		}
 
 		if (arg == "") {
-			// aggiungere eccezione in caso arg non corrisponde a nessun dato
+			throw new DataIllegalArgumentException("Non ci sono dati corrispondenti da analizzare");
 		}
 
 		if (jO.get(arg) instanceof JSONObject) {
