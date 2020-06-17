@@ -28,25 +28,32 @@ import it.univpm.twitterProject.utils.filter.GenericFilterTweet;
 public class simpleRestController {
 
 	@GetMapping("/getAllTweet")
-	public ArrayList<Tweet> getData() {
-		return StartClass.getAllTweet();
+	public JSONObject getData() {
+		return StartClass.getAllTweetJO();
 	}
 
 	@GetMapping("/getAllCity")
 	public HashMap<String, Coord> getCity() {
-		return StartClass.getAllCity();
+		return StartClass.getAllCityJO();
 	}
 	
 	@GetMapping("/getAllMetadata")
-	public ArrayList<Metadata> getMetadata(){
-		return StartClass.getAllMetadata();
+	public JSONObject getMetadata() {
+		return StartClass.getAllMetadataJO();
 	}
 
 	@GetMapping("/setTweet")
 	public ResponseEntity<String> setTweet(@RequestParam(name = "arg", defaultValue = "terremoto") String arg,
 			@RequestParam(name = "qt", defaultValue = "100") int qt) throws ParseException {
-
-		StartClass.setAllTweet(arg, qt);
+		if(qt <= 0) {
+			return new ResponseEntity<String>("Qt deve essere maggiore di 0", HttpStatus.OK); 
+		}
+		
+		try {
+			StartClass.setAllTweet(arg, qt);
+		} catch(TweetsNotFoundException e) {
+			return new ResponseEntity<String>("Non ci sono tweet per questi valori", HttpStatus.OK);
+		}
 		if(arg.equals("terremoto") && qt == 100) {
 			return new ResponseEntity<String>("Nessun parametro trovato, array impostato a default", HttpStatus.OK);
 		}
@@ -56,12 +63,12 @@ public class simpleRestController {
 	
 
 	@GetMapping("/data")
-	public ArrayList<Tweet> data (@RequestParam(name = "filter", defaultValue = "no filter") String f) throws ParseException {
-		if (f.equals("no filter")) {return StartClass.getAllTweet();}
+	public JSONObject data (@RequestParam(name = "filter", defaultValue = "no filter") String f) throws ParseException {
+		if (f.equals("no filter")) {return StartClass.getAllTweetJO();}
 		AppFilter af = new AppFilter();
 		GenericFilterTweet gft = new GenericFilterTweet(f);
 		af.Filtring(gft);
-		return af.getFilteredTweet();
+		return af.getAllFilteredTweetJO();
 	}
 
 	
@@ -102,9 +109,9 @@ public class simpleRestController {
 	}
 	
 	
-	@PostMapping("/getStats")
-	public JSONArray getStats(@RequestBody JSONObject distanza) {
-		TweetForCity tfc = new TweetForCity((int) distanza.get("dist"));
+	@GetMapping("/getStats")
+	public JSONArray getStats(@RequestParam (name = "distanza") int distanza ){
+		TweetForCity tfc = new TweetForCity(distanza);
 		return tfc.AppStat();
 	}
 }

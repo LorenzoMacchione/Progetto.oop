@@ -17,6 +17,30 @@ public class AppFilter {
 		return FilteredTweet;
 	}
 
+	public JSONObject getAllFilteredTweetJO() {
+		JSONObject ob = new JSONObject();
+		JSONArray arr = new JSONArray();
+		for (Tweet t : FilteredTweet) {
+			JSONObject obj = new JSONObject();
+			obj.put("id", t.getId());
+			obj.put("name", t.getName());
+			obj.put("screen_name", t.getScreen_name());
+			obj.put("text", t.getText());
+			obj.put("day", t.getDay());
+			obj.put("month", t.getMonth());
+			obj.put("year", t.getYear());
+			obj.put("hour", t.getHour());
+			obj.put("minute", t.getMinute());
+			obj.put("followers", t.getFollowers());
+			obj.put("lat", t.getLat());
+			obj.put("lon", t.getLon());
+			
+			arr.add(obj);
+		}
+		ob.put("Tutti i tweet filtrati", arr);
+		return ob;
+	}
+
 	public ArrayList<Tweet> getFilteredTweet() {
 		return FilteredTweet;
 	}

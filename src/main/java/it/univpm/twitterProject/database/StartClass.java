@@ -56,7 +56,7 @@ public class StartClass {
 		AllMetadata.add(new Metadata("id", "long", "Codice identificativo dell'autore del tweet"));
 		AllMetadata.add(new Metadata("name", "String", "Nome dell'autore del tweet"));
 		AllMetadata.add(new Metadata("screen_name", "String", "Nickname dell'autore del tweet"));
-		AllMetadata.add(new Metadata("text", "String", ""));
+		AllMetadata.add(new Metadata("text", "String", "Testo del tweet"));
 		AllMetadata.add(new Metadata("day", "int", "Numero del giorno nel mese"));
 		AllMetadata.add(new Metadata("month", "int", "Numero del mese"));
 		AllMetadata.add(new Metadata("year", "int", "Anno"));
@@ -149,14 +149,63 @@ public class StartClass {
 		return data;
 	}
 
+	public static JSONObject getAllTweetJO() {
+		JSONObject ob = new JSONObject();
+		JSONArray arr = new JSONArray();
+		for (Tweet t : AllTweet) {
+			JSONObject obj = new JSONObject();
+			obj.put("id", t.getId());
+			obj.put("name", t.getName());
+			obj.put("screen_name", t.getScreen_name());
+			obj.put("text", t.getText());
+			obj.put("day", t.getDay());
+			obj.put("month", t.getMonth());
+			obj.put("year", t.getYear());
+			obj.put("hour", t.getHour());
+			obj.put("minute", t.getMinute());
+			obj.put("followers", t.getFollowers());
+			obj.put("lat", t.getLat());
+			obj.put("lon", t.getLon());
+			
+			arr.add(obj);
+		}
+		ob.put("Tutti i tweet", arr);
+		return ob;
+	}
+	
+	public static JSONObject getAllMetadataJO() {
+		JSONObject ob = new JSONObject();
+		JSONArray arr = new JSONArray();
+		for (Metadata m : AllMetadata) {
+			JSONObject obj = new JSONObject();
+			obj.put("alias", m.getAlias());
+			obj.put("type", m.getType());
+			obj.put("sourcefield", m.getSourceField());
+			
+			arr.add(obj);
+		}
+		ob.put("Tutti i metadata", arr);
+		return ob;
+	}
+	
+	
+	public static JSONObject getAllCityJO() {
+		JSONObject ob = new JSONObject();
+		ob.putAll(AllCity);
+		return ob;
+	}
+
 	public static void setAllTweet() throws ParseException {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets());
 	}
 
-	public static void setAllTweet(String arg, int qt) throws ParseException {
+	public static void setAllTweet(String arg, int qt) throws ParseException, TweetsNotFoundException {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets(arg, qt));
+		if(AllTweet.size() == 0) {
+			throw new TweetsNotFoundException("Non ho trovato Tweet");
+		}
 	}
 
 	public static void setAllCity() throws ParseException {
