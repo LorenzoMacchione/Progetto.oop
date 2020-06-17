@@ -43,9 +43,14 @@ public class simpleRestController {
 	}
 
 	@GetMapping("/setTweet")
-	public void setTweet(@RequestParam(name = "arg", defaultValue = "terremoto") String arg,
+	public ResponseEntity<String> setTweet(@RequestParam(name = "arg", defaultValue = "terremoto") String arg,
 			@RequestParam(name = "qt", defaultValue = "100") int qt) throws ParseException {
+
 		StartClass.setAllTweet(arg, qt);
+		if(arg.equals("terremoto") && qt == 100) {
+			return new ResponseEntity<String>("Nessun parametro trovato, array impostato a default", HttpStatus.OK);
+		}
+		return new ResponseEntity<String>("Array modificato", HttpStatus.OK);
 	}
 
 	
