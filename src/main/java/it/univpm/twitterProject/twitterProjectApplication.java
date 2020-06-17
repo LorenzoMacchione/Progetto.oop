@@ -6,6 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import it.univpm.twitterProject.database.StartClass;
 
+/**
+ * All'avvio scarica il dataset e inizializza costanti
+ * 
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+ */
+
+
 @SpringBootApplication
 public class twitterProjectApplication {
 

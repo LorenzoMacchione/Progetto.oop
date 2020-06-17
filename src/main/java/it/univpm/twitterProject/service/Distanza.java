@@ -2,10 +2,23 @@ package it.univpm.twitterProject.service;
 
 import it.univpm.twitterProject.model.Coord;
 
+/** Classe che permette di calcolare la distanza tra due coordinate
+ * 
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+*/
+
 public class Distanza {
 
 	private double R = 6371;
 
+	
+	/** Calcola la distanza tra due coordinate
+	 * 
+	 * @param Coord: coordinate del primo punto
+	 * @param Coord: coordinate del secondo punto
+	 * @return double: distanza tra i due punti 
+	*/
 	public double CalcDist(Coord coord1, Coord coord2) {
 
 		double[] cCityrad = new double[2];
@@ -29,6 +42,6 @@ public class Distanza {
 		// Calcola la distanza sulla superficie terrestre R = ~6371 km
 		d = p * R;
 
-		return (d);
+		return d;
 	}
 }

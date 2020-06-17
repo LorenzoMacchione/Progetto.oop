@@ -1,5 +1,11 @@
 package it.univpm.twitterProject.exception;
 
+/** Rappresenta un'eccezzione personalizzata che estende DataIllegalArgumentException
+ * 
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+*/
+
 public class IllegalCoordException extends DataIllegalArgumentException {
 
 	private static final long serialVersionUID = 1L;

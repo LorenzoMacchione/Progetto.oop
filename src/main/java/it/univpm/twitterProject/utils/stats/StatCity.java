@@ -8,6 +8,12 @@ import it.univpm.twitterProject.model.Metadata;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.utils.filter.FilterDistCap;
 
+/** Rappresenta le statistiche relative a una città.
+ * 
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+*/
+
 public class StatCity implements Stat {
 
 	private String name;
@@ -30,7 +36,12 @@ public class StatCity implements Stat {
 			}
 		}
 	}
-
+	
+	/** Metodo che restituisce le statistiche sotto forma di JSONObject.
+	 * 
+	 *@return JSONObject: contenente le statistiche 
+	*/
+	
 	@Override
 	public JSONObject getStatJo() {
 		JSONObject jO = new JSONObject();

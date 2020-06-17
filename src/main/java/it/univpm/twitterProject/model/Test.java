@@ -4,6 +4,13 @@ import org.json.simple.JSONObject;
 import it.univpm.twitterProject.database.StartClass;
 import it.univpm.twitterProject.exception.DataIllegalArgumentException;
 
+/** Classe che contiene gli oggetti che rapresentano il test di un filtro
+ * 
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+*/
+
+
 public class Test {
 	private String arg = "";
 	private String operetor = "==";

@@ -1,5 +1,14 @@
 package it.univpm.twitterProject.model;
 
+
+
+
+/** Classe che contiene le coordinate
+ * 
+ * @author Lorenzo Macchione
+ * @author Donato Mariano
+*/
+
 public class Coord {
 	private double lat;
 	private double lon;
