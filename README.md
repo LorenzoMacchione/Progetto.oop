@@ -44,7 +44,7 @@ La seguente tabella mostra le richieste possibili.
 |GET             |/data                          |restituisce i tweet con i relativi dati                  |
 |GET             |/data?filter="filtro"          |restituisce i tweet con i relativi dati filtrati secondo il filtro passato|
 |GET             |/Stat?field="nome"             |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato fatta sull'intero dataset     |
-|GET             |/Stat?field="nome"&filter="filtro"  |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato fatta sul data-set filtrato (i filtri sulle città richiedono di passare anche la distanza "dist") espressa in Km|
+|GET             |/Stat?field="nome"&filter="filtro"  |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato ( sulle città richiedono di passare anche la distanza "dist") fatta sul data-set filtrato  espressa in Km|
 |GET             |/getTweetForCity?distanza= "distanza in Km"          |restituisce le città con il numero di tweet entro la    distanza |
 |GET            |/setAllTweet?qt=quantità&arg="argomento"   |modifica i tweet nel data-set
 
