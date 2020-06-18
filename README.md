@@ -98,7 +98,7 @@ La tabella seguente illustra i descrittori disponibili
 <img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Database%20Class%20Diagram.jpg" width="400"/>
 
 * **Package it.univpm.twitterProject.model**
-<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Model%20Class%20Diagram.jpg"="1000"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Model%20Class%20Diagram.jpg" width="400"/>
 
 * **Package it.univpm.twitterProject.service**
 <img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Service%20Class%20Diagram.jpg" width="1000"/>
