@@ -20,9 +20,9 @@ La nostra applicazione permette di richiedere mediante API REST (GET) con rotte 
 
 
 
-AGGIUNGERE IMMAGINE DIAGRAMMA DELLE CHIAMATE
 
-<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Use%20Case%20Diagram.jpg" width="500"/>
+
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Use%20Case%20Diagram.jpg" width="700"/>
 
 
 
@@ -88,31 +88,29 @@ La tabella seguente illustra i descrittori disponibili
 ## Sviluppo
 
 ### Package
-<img src="https://rppelg.db.files.1drv.com/y4maciwzZJ9nH7Wm3HyjkPmrMvktnQiSU_ZemRVRfVzy35kYy5nyRCbNHqaa7B1BK6j7XstmwmpAYtRUrq_O5tk_lr4_lHnS-Vme5Jd9YRFyqcRXg9MfWf6QY_V1Aj7GfpBennaT41-Iwh6-qyvZXxTuhc7bH3A2QWC-IlQx0YUONN_uM-ph9E3E602rsTip20u?width=1683&height=939&cropmode=none" width="800"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Package.jpg" width="800"/>
 
 ### Classi
 * **Package it.univpm.twitterProject.controller**
-<img src="https://aamxpq.db.files.1drv.com/y4m5bzw69D848mwxyKNJbZbIHmgWUlc1G1_rJj6LWa_-CJR87ObrwRQBoB274o_s0VbOcn2QALib_DG8VUR6oZzCBGJ0yeyGgpf5k34tEIeonaKBNqrrGVYwTw7-67Xz0RdqD7uImtcw-Sn_jPYWEJ5_TFJePlxl889h6xv0AQHWfYTBvFMVI-vBtWkFJObKSZn?width=933&height=437&cropmode=none" width="400"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Controller%20Class%20Diagram.jpg" width="400"/>
 
 * **Package it.univpm.twitterProject.database**
-<img src="https://rp8yxa.db.files.1drv.com/y4mnruecugcm6RTLVwPqrmBuSukU7a0KmlxIGyiSebWmlQ4_1Q8oZeoV_SpPWaadXkkkppIwjNLzDMY6hOzRtJy6KD6wPz84LPtj7rSOVig7U15BYreqCTpmOSV6g_FbZiz0F6uwUC8M8enVCMDIPViwtVwn00DrX8VPSWc6Mx9Dv7lGnbeEwiAhzXimALGPZyP?width=821&height=396&cropmode=none" width="400"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Database%20Class%20Diagram.jpg" width="400"/>
 
 * **Package it.univpm.twitterProject.model**
-<img src="https://aan8ma.db.files.1drv.com/y4mst12CQranENvifwfmvWa4ncDGn63NjpFMfOqQSHoaHnAzgMRSasV5wmJ4TMG2VXTde6XGPzg9skXnnuTVc3mXzUHqlWHeRhzQfVN1ToyebtJOcreboYFDytJVeJ4zTW8BL5OKSppuW1FurY-bZgF3i5_-GIwMiZbSmvduMyjtVqOXtSxkOSyCkA1yMf-exX7?width=1827&height=937&cropmode=none" width="1000"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Model%20Class%20Diagram.jpg"="1000"/>
 
 * **Package it.univpm.twitterProject.service**
-<img src="https://rp9orq.db.files.1drv.com/y4mlQ7vBw8uVCWRk2IapGMC2I1dLY5ZgVqw0eYcWPdgwqpf0gKrmeTwCrDmuypZcIcbXjfMJKp8KH-4dPML_xgf0a2QsEwEJnOOF9YPmEMiJGEd8H8N4eOdlDLTWh4qUT-1HEAN_0ABvOJ9ArAPxuc3Irsi4rAPvJheE6c0-8j9GhT4OZCuMv_Na6EjVkECuN7k?width=1993&height=881&cropmode=none" width="1000"/>
-
-**Package it.univpm.twitterProject.service.parser**
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Service%20Class%20Diagram.jpg" width="1000"/>
 
 * **Package it.univpm.twitterProject.exception**
-<img src="https://aaoygq.db.files.1drv.com/y4mAsvRthPQ5MgTsGJ-XYvf58M80wunSVoPNPTyWqQm3rFPVaLrLDA8qCRz7T_h2Lj2VTKpqdQLGf3l6N3MkUCC7v2OfHrzzPsYcD5TFWc418nrdTQEvc52pkM6qdSz4Wy0Niyi7gSm7VjoNc9DSG1exJaxdEl9QzCWZJdcRQAJ_Far-r_ygLYSgAt2pJ9RqY2D?width=1605&height=897&cropmode=none" width="1000"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Exception%20Class%20Diagram.jpg" width="1000"/>
 
 * **Package it.univpm.twitterProject.utils.filter**
-<img src="https://aannjg.db.files.1drv.com/y4mRe4nkI2sZHTfzoUOhl5VQzbQCNTQzkehgM3jzCfuIXKwbyFJ3_HQkmp6OSAGOiDQWWsHvz6mvT0AkAKCihxnMrimR3yjGKMlxYQAsK9XKRdGRKHGg5PQ3N5ry3w_jehwrbFi-hjckttqFHt_zkUs9bx0Iw2_LKSQZY2D4TEP9lF_fKH8pJe-c3RfCUuHUJQm?width=2191&height=927&cropmode=none" width="1000"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Filter%20Class%20Diagram.jpg" width="1000"/>
 
 * **Package it.univpm.twitterProject.utils.stats**
-<img src="https://aaphuw.db.files.1drv.com/y4mRjse4Z7iBHx3XFvqaEHepcsuecehoiYqbgD1_J7f11scOMKPk7cryrGDn6I7ZhdkOnTjW-BKSUyPMl3ejWLUoqa8pQc8kkF-TH6KgFj5MfZg8bfZfF48Y-QpxxT-g-iG-fLFHfQ_Sq20CAiQN20ANwoSfxj71-PGxtm3n2osNiywIStxMPmStpQfcOyO-gyT?width=1727&height=837&cropmode=none" width="1000"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Stats%20Class%20Diagram.jpg" width="1000"/>
 
 
 ### Chiamate
