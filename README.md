@@ -146,3 +146,6 @@ Il calcolo statistico viene eseguito come spiegato nella richiesta *GET /stats?f
 * [Maven](https://maven.apache.org/) - strumento di gestione di progetti
 
 ## Autori
+
+* **Lorenzo Macchione** - [GitHub](https://github.com/LorenzoMacchione)
+* **Donato Mariano** - [GitHub](https://github.com/Doonato)
