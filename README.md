@@ -73,7 +73,6 @@ La tabella seguente illustra gli operatori disponibili
 |$bt		 |compreso tra  (valido per campi numerici)   |{"lat":{"$bt":[100,5000]}}      |     
 |$cc		 |cerchio intorno a una città (valido solo per geo) |{"geo":{"$cc":{"city":"Ancona","range":100}}} |
 |$cp             |cerchio intorno a un punto* (valido solo per geo)|	{"geo":{"$cp":{"lat":45.735,"lon":7.35,"range":100}}}|
-|Nin             |non trova una corrispondeza con i valori dell'array (valido per stringhe)|	{"ProvDest":{"Nin":["Roma","Viterbo"]}}|
 
 *L'italia ha latitudine compresa tra 36.7 e 46.7, longitudine compresa tra 6.8 e 15.5.
 
@@ -150,7 +149,7 @@ Il controller chiama `setAlltTweet` per andare a modificare l'array di tweet.
 ## Software utilizzati
 
 * [Eclipse](https://www.eclipse.org/) - ambiente di sviluppo integrato
-* [UMLDesigner] (http://www.umldesigner.org/) - ambiente di creazione uml
+* [UMLDesigner](http://www.umldesigner.org/) - ambiente di creazione uml
 * [Spring Boot](https://spring.io/projects/spring-boot) - framework per  sviluppo applicazioni Java
 * [Maven](https://maven.apache.org/) - strumento di gestione di progetti
 
