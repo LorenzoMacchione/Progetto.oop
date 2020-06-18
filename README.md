@@ -22,7 +22,7 @@ La nostra applicazione permette di richiedere mediante API REST (GET) con rotte 
 
 
 
-<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Use%20Case%20Diagram.jpg" width="700"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Use%20Case%20Diagram.jpg" width="600"/>
 
 
 
@@ -98,10 +98,10 @@ La tabella seguente illustra i descrittori disponibili
 <img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Database%20Class%20Diagram.jpg" width="400"/>
 
 * **Package it.univpm.twitterProject.model**
-<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Model%20Class%20Diagram.jpg" width="400"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Model%20Class%20Diagram.jpg" width="1000"/>
 
 * **Package it.univpm.twitterProject.service**
-<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Service%20Class%20Diagram.jpg" width="1000"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Service%20Class%20Diagram.jpg" width="1100"/>
 
 * **Package it.univpm.twitterProject.exception**
 <img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Exception%20Class%20Diagram.jpg" width="1000"/>
