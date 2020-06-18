@@ -60,7 +60,7 @@ public class parserTweet extends parser {
 				tweet.setGeo(co);
 				tweetsList.add(tweet);
 			} else {
-				Double a2 = 36.7;
+				Double a2 = 0.0;
 				Double a1 = gen.nextDouble() * 10 + 36.7;
 				if (a1 < 38.2) {
 					a2 = gen.nextDouble() * 3 + 12.5;
