@@ -8,11 +8,12 @@ import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.Distanza;
 
-/** Rappresenta il numero di tweet nelle varie città.
+/**
+ * Rappresenta il numero di tweet nelle varie città.
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
+ */
 
 public class TweetForCity {
 	private int dist;
@@ -23,12 +24,12 @@ public class TweetForCity {
 		this.dist = dist;
 	}
 
-	
-	/** Metodo che calcola la statistica.
+	/**
+	 * Metodo che calcola la statistica.
 	 * 
 	 * @return JSONObject: contenente la statistica.
-	*/
-	
+	 */
+
 	public JSONArray AppStat() {
 		Distanza d = new Distanza();
 		for (Map.Entry<String, Coord> entry : StartClass.getAllCity().entrySet()) {

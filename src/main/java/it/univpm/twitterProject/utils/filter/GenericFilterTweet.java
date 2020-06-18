@@ -12,12 +12,12 @@ import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.FilterUtils;
 import it.univpm.twitterProject.service.parser.parser;
 
-
-/** Classe rapresentante il filtro
+/**
+ * Classe rapresentante il filtro
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
+ */
 
 public class GenericFilterTweet implements Filter {
 
@@ -56,14 +56,13 @@ public class GenericFilterTweet implements Filter {
 		}
 	}
 
-	
-	
-	/** funzione che realizza un "and" su i test
+	/**
+	 * funzione che realizza un "and" su i test
 	 * 
 	 * @param Tweet: su cui eseguire i test
 	 * @return boolean: il risultato dei test
-	*/
-	
+	 */
+
 	public boolean and(Tweet g) {
 		for (Test t : tests) {
 			if (!tester(t, g)) {
@@ -73,14 +72,13 @@ public class GenericFilterTweet implements Filter {
 		return true;
 	}
 
-	
-		
-	/** funzione che realizza un "or" su i test
+	/**
+	 * funzione che realizza un "or" su i test
 	 * 
 	 * @param Tweet: su cui eseguire i test
 	 * @return boolean: il risultato dei test
-	*/
-	
+	 */
+
 	public boolean or(Tweet g) {
 		for (Test t : tests) {
 			if (tester(t, g)) {
@@ -90,13 +88,14 @@ public class GenericFilterTweet implements Filter {
 		return false;
 	}
 
-	/** funzione che esegue il test
+	/**
+	 * funzione che esegue il test
 	 * 
 	 * @param Tweet: su cui eseguire il test
-	 * @param Test: test da eseguire
+	 * @param Test:  test da eseguire
 	 * @return boolean: il risultato dei test
-	*/
-	
+	 */
+
 	public boolean tester(Test t, Tweet tweet) {
 		Method m = null;
 		Object o = null;
@@ -143,13 +142,13 @@ public class GenericFilterTweet implements Filter {
 		return false;
 	}
 
-	
-	/** funzione che esegue il filtraggio
+	/**
+	 * funzione che esegue il filtraggio
 	 * 
 	 * @param Tweet: su cui eseguire il filtraggio
 	 * @return boolean: il risultato del filtraggio
-	*/
-	
+	 */
+
 	@Override
 	public boolean filter(Tweet t) {
 		// TODO Auto-generated method stub

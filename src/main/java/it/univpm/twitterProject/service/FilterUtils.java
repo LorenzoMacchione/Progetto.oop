@@ -1,4 +1,3 @@
-
 package it.univpm.twitterProject.service;
 
 import org.json.simple.JSONArray;
@@ -8,28 +7,24 @@ import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.utils.filter.FilterDistCap;
 import it.univpm.twitterProject.utils.filter.FilterDistPoint;
 
-
-
-/** Classe che contiene la funzione per controllare se il filtro è rispettato
+/**
+ * Classe che contiene la funzione per controllare se il filtro è rispettato
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
-
-
+ */
 
 public class FilterUtils {
-	
-	
-	
-	/** Controlla che il dato rispetti il filtro
+
+	/**
+	 * Controlla che il dato rispetti il filtro
 	 * 
 	 * @param Object: dato da analizzare
 	 * @param String: rapresentante l'operatore da applicare
 	 * @param Object: dato a cui fare riferimento
-	 * @return boolean: che rappresenta se il dato rispetta il filtro 
-	*/
-	
+	 * @return boolean: che rappresenta se il dato rispetta il filtro
+	 */
+
 	public static boolean check(Object value, String operator, Object th) {
 		if (th instanceof Number && value instanceof Number) {
 

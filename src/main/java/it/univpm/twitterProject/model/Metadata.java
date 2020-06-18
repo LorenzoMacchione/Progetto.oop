@@ -1,10 +1,11 @@
 package it.univpm.twitterProject.model;
 
-/**Classe i cui oggetti contengono i dati di un metadata
+/**
+ * Classe i cui oggetti contengono i dati di un metadata
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
+ */
 
 public class Metadata {
 	private String alias;

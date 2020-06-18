@@ -13,7 +13,6 @@ import it.univpm.twitterProject.database.StartClass;
  * @author Donato Mariano
  */
 
-
 @SpringBootApplication
 public class twitterProjectApplication {
 

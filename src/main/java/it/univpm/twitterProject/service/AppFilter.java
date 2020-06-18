@@ -8,33 +8,41 @@ import it.univpm.twitterProject.exception.TweetsNotFoundException;
 import it.univpm.twitterProject.utils.filter.Filter;
 import it.univpm.twitterProject.model.Tweet;
 
-/** Classe che applica il filtro sull'array
+/**
+ * Classe che applica il filtro sull'array
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
-
+ */
 
 public class AppFilter {
 
 	private ArrayList<Tweet> FilteredTweet = new ArrayList<Tweet>();
+
+	/**
+	 * Metodo che applica il filtro
+	 * 
+	 * @param Filter: l'oggeto che implementa l'interfaccia filter
+	 * @return ArrayList: l'arraylist dei tweet filtrati
+	 * @throws TweetsNotFoundException: se dopo il filtraggio l'array è vuoto
+	 */
 
 	public ArrayList<Tweet> Filtring(Filter f) throws TweetsNotFoundException {
 		for (Tweet t : StartClass.getAllTweet()) {
 			if (f.filter(t))
 				FilteredTweet.add(t);
 		}
-		if (FilteredTweet.size() == 0) { throw new TweetsNotFoundException("L'array filtrato non ha elementi");}
+		if (FilteredTweet.size() == 0) {
+			throw new TweetsNotFoundException("L'array filtrato non ha elementi");
+		}
 		return FilteredTweet;
 	}
 
-	
-	
-	
-	/** Getter dell'array filtrato come jsonObject
+	/**
+	 * Getter dell'array filtrato come jsonObject
 	 * 
 	 * @return il JsonObject contenete l'array filtrato
-	*/
+	 */
 	public JSONObject getAllFilteredTweetJO() {
 		JSONObject ob = new JSONObject();
 		JSONArray arr = new JSONArray();

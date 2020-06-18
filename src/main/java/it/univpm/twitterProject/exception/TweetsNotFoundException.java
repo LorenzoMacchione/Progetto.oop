@@ -1,10 +1,11 @@
 package it.univpm.twitterProject.exception;
 
-/** Rappresenta un'eccezzione personalizzata
+/**
+ * Rappresenta un'eccezzione personalizzata
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
+ */
 
 public class TweetsNotFoundException extends Exception {
 

@@ -19,14 +19,12 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 /**
  * Classe che gestisce il dataset
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
  */
-
 
 public class StartClass {
 
@@ -80,7 +78,7 @@ public class StartClass {
 		AllMetadata.add(new Metadata("geo", "Coord", "coordinate"));
 
 	}
-	
+
 	public static void setAllCity() throws ParseException {
 		parserCap p = new parserCap();
 		AllCity = p.parsing(downloadCity());
@@ -124,13 +122,12 @@ public class StartClass {
 		return ob;
 	}
 
-	
 	/**
 	 * Getter che restituisce tutti i metadati come JsonObject
 	 * 
 	 * @return JsonObject contenente tutti i metadati
 	 */
-	
+
 	public static JSONObject getAllMetadataJO() {
 		JSONObject ob = new JSONObject();
 		JSONArray arr = new JSONArray();
@@ -146,14 +143,12 @@ public class StartClass {
 		return ob;
 	}
 
-	
-	
 	/**
 	 * Getter che restituisce tutte le città come JsonObject
 	 * 
 	 * @return JsonObject contenente tutte le città
 	 */
-	
+
 	public static JSONObject getAllCityJO() {
 		JSONObject ob = new JSONObject();
 		ob.putAll(AllCity);
@@ -165,21 +160,19 @@ public class StartClass {
 	 * 
 	 * @throws ParseException: se ci sono errori durante il parsing
 	 */
-	
+
 	public static void setAllTweet() throws ParseException {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets());
 	}
 
-	
-	
 	/**
 	 * Inizializza i tweet con argomento e quantità a scelta richiamando il parser
 	 * 
-	 * @throws ParseException: se ci sono errori durante il parsing
+	 * @throws ParseException:          se ci sono errori durante il parsing
 	 * @throws TweetsNotFoundException: se non ci sono tweet sull'argomento
 	 */
-	
+
 	public static void setAllTweet(String arg, int qt) throws ParseException, TweetsNotFoundException {
 		parserTweet p = new parserTweet();
 		AllTweet = p.parsing(downloadTweets(arg, qt));
@@ -188,15 +181,12 @@ public class StartClass {
 		}
 	}
 
-	
-	
-	
 	/**
 	 * Scarica l'elenco dei tweet
 	 * 
 	 * @return Una stringa rapresentante in jsonobject i tweet
 	 */
-	
+
 	public static String downloadTweets() {
 
 		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=100&lang=it";
@@ -223,13 +213,12 @@ public class StartClass {
 		return data;
 	}
 
-	
 	/**
 	 * Scarica l'elenco dei tweet con argomento e quantità a scelta
 	 * 
 	 * @return Una stringa rapresentante in jsonobject i tweet
 	 */
-	
+
 	public static String downloadTweets(String arg, int qt) {
 
 		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=" + arg
@@ -258,13 +247,12 @@ public class StartClass {
 		return data;
 	}
 
-	
 	/**
 	 * legge l'elenco delle città
 	 * 
 	 * @return Una stringa rapresentante in jsonobject le città
 	 */
-	
+
 	public static String downloadCity() {
 
 		String file = "src\\main\\java\\it\\univpm\\twitterProject\\database\\JSONCapRegioni.txt";

@@ -1,7 +1,6 @@
 package it.univpm.twitterProject.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import it.univpm.twitterProject.model.Coord;
 import it.univpm.twitterProject.model.Metadata;
 import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.AppFilter;
@@ -24,7 +22,6 @@ import it.univpm.twitterProject.exception.FilterNotFoundException;
 import it.univpm.twitterProject.exception.TweetsNotFoundException;
 import it.univpm.twitterProject.utils.filter.GenericFilterTweet;
 
-
 /**
  * Classe che gestisce le chiamate del client
  * 
@@ -32,14 +29,13 @@ import it.univpm.twitterProject.utils.filter.GenericFilterTweet;
  * @author Donato Mariano
  */
 
-
 @RestController
 public class simpleRestController {
 
 	/**
 	 * Risponde alla chiamata GET /getAllTweet
 	 * 
-	 * @return JsonObject contenente l'arrey con tutti i tweet salvati nel dataset 
+	 * @return JsonObject contenente l'arrey con tutti i tweet salvati nel dataset
 	 */
 
 	@GetMapping("/getAllTweet")
@@ -47,11 +43,11 @@ public class simpleRestController {
 		return StartClass.getAllTweetJO();
 	}
 
-	
 	/**
 	 * Risponde alla chiamata GET /getAllCity
 	 * 
-	 * @return JsonObject contenente l'arrey con tutti i capoluoghi di regioni dell'italia con relative coordinate
+	 * @return JsonObject contenente l'arrey con tutti i capoluoghi di regioni
+	 *         dell'italia con relative coordinate
 	 */
 
 	@GetMapping("/getAllCity")
@@ -59,30 +55,28 @@ public class simpleRestController {
 		return StartClass.getAllCityJO();
 	}
 
-	
-	
 	/**
 	 * Risponde alla chiamata GET /getAllMetadata
 	 * 
 	 * @return JsonObject contenente l'array con tutti i metadati
 	 */
-	
-		@GetMapping("/getAllMetadata")
+
+	@GetMapping("/getAllMetadata")
 	public JSONObject getMetadata() {
 		return StartClass.getAllMetadataJO();
 	}
 
-		
-		/**
-		 * Risponde alla chiamata GET /getAllMetadata andando a modificare il dataset dei tweet,
-		 *  se i parametri non vengono passati viene fatto tornare alle condizioni iniziali
-		 *  
-		 * @param arg: Argomento dei tweet su cui si vuole lavorare; default:terremoto
-		 * @param qt: Quantità di tweet su cui si vuole lavorare; default: 100
-		 * @return Un messaggio sulla riuscita dell'operazione
-		 * @throws ParseException 
-		 */
-		
+	/**
+	 * Risponde alla chiamata GET /getAllMetadata andando a modificare il dataset
+	 * dei tweet, se i parametri non vengono passati viene fatto tornare alle
+	 * condizioni iniziali
+	 * 
+	 * @param arg: Argomento dei tweet su cui si vuole lavorare; default:terremoto
+	 * @param qt:  Quantità di tweet su cui si vuole lavorare; default: 100
+	 * @return Un messaggio sulla riuscita dell'operazione
+	 * @throws ParseException
+	 */
+
 	@GetMapping("/setTweet")
 	public ResponseEntity<String> setTweet(@RequestParam(name = "arg", defaultValue = "terremoto") String arg,
 			@RequestParam(name = "qt", defaultValue = "100") int qt) throws ParseException {
@@ -100,17 +94,18 @@ public class simpleRestController {
 		return new ResponseEntity<String>("Array modificato", HttpStatus.OK);
 	}
 
-	
-	
 	/**
 	 * Risponde alla chiamata GET /data
 	 * 
 	 * @param filter: filtro da applicare sul dataset di tweet
-	 * @return JsonObject contenente l'array dei tweet filtrato secondo il filtro passato se presente
-	 * @throws FilterNotFoundException: se il filtro è stato passato in maniera errata
-	 * @throws TweetsNotFoundException: se dopo aver applicato il filtro nno si è ottenuto nessun tweet valido
+	 * @return JsonObject contenente l'array dei tweet filtrato secondo il filtro
+	 *         passato se presente
+	 * @throws FilterNotFoundException: se il filtro è stato passato in maniera
+	 *                                  errata
+	 * @throws TweetsNotFoundException: se dopo aver applicato il filtro nno si è
+	 *                                  ottenuto nessun tweet valido
 	 */
-	
+
 	@GetMapping("/data")
 	public JSONObject data(@RequestParam(name = "filter", defaultValue = "no filter") String f)
 			throws FilterNotFoundException, TweetsNotFoundException {
@@ -125,21 +120,23 @@ public class simpleRestController {
 
 	}
 
-	
-	
-	
 	/**
 	 * Risponde alla chiamata GET /Stat
 	 * 
-	 * @param field: il metadato o la città su cui si vuole effettuare la statistica 
+	 * @param field:  il metadato o la città su cui si vuole effettuare la
+	 *                statistica
 	 * @param filter: filtro da applicare sul dataset di tweet
-	 * @param dist: distanza in chilometri necessaria per le statistiche sulle città
+	 * @param dist:   distanza in chilometri necessaria per le statistiche sulle
+	 *                città
 	 * @return JsonArray contenete la rapresentazione delle statistiche
-	 * @throws DataIllegalArgumentException: se i dati non sono stati passati in maniera corretta
-	 * @throws FilterNotFoundException: se il filtro è stato passato in maniera errata
-	 * @throws TweetsNotFoundException: se dopo aver applicato il filtro non si è ottenuto nessun tweet valido
+	 * @throws DataIllegalArgumentException: se i dati non sono stati passati in
+	 *                                       maniera corretta
+	 * @throws FilterNotFoundException:      se il filtro è stato passato in maniera
+	 *                                       errata
+	 * @throws TweetsNotFoundException:      se dopo aver applicato il filtro non si
+	 *                                       è ottenuto nessun tweet valido
 	 */
-	
+
 	@GetMapping("/Stat")
 	public JSONArray stat(@RequestParam(name = "field") JSONArray field,
 			@RequestParam(name = "filter", defaultValue = "no filter") String filter,
@@ -186,17 +183,14 @@ public class simpleRestController {
 		return out;
 	}
 
-	
-	
-	
 	/**
 	 * Risponde alla chiamata GET /getTweetforCity
 	 * 
 	 * @param distanza: distanza in chilometri dalla città
-	 * @return JsonArray contente la lista di città con la ripettiva quantità di tweet entro la distanza passata
+	 * @return JsonArray contente la lista di città con la ripettiva quantità di
+	 *         tweet entro la distanza passata
 	 */
 
-	
 	@GetMapping("/getTweetforCity")
 	public JSONArray getStats(@RequestParam(name = "distanza") int distanza) {
 		TweetForCity tfc = new TweetForCity(distanza);

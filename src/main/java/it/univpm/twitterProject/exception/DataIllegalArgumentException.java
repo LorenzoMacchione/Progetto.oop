@@ -1,12 +1,11 @@
 package it.univpm.twitterProject.exception;
 
-
-/** Rappresenta un'eccezzione personalizzata di tipo IllegalargumentException
+/**
+ * Rappresenta un'eccezzione personalizzata di tipo IllegalargumentException
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
-
+ */
 
 public class DataIllegalArgumentException extends IllegalArgumentException {
 

@@ -10,12 +10,12 @@ import it.univpm.twitterProject.exception.IllegalCoordException;
 import it.univpm.twitterProject.exception.IllegalStringException;
 import it.univpm.twitterProject.model.Metadata;
 
-
-/** Rappresenta le statistiche relative a un dato numerico.
+/**
+ * Rappresenta le statistiche relative a un dato numerico.
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
-*/
+ */
 
 public class StatNumb<E> implements Stat {
 
@@ -80,12 +80,12 @@ public class StatNumb<E> implements Stat {
 		}
 	}
 
-	
-	/** Metodo che restituisce le statistiche sotto forma di JSONObject.
+	/**
+	 * Metodo che restituisce le statistiche sotto forma di JSONObject.
 	 * 
-	 *@return JSONObject: contenente le statistiche 
-	*/
-	
+	 * @return JSONObject: contenente le statistiche
+	 */
+
 	@Override
 	public JSONObject getStatJo() {
 		JSONObject jO = new JSONObject();
