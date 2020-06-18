@@ -41,7 +41,7 @@ public class StartClass {
 	public static void setAllDescriptor() {
 		AllDescriptor.add("$not");
 		AllDescriptor.add("$in");
-		AllDescriptor.add("$ni");
+		AllDescriptor.add("$nin");
 	}
 
 	public static ArrayList<String> getAllOperetor() {
