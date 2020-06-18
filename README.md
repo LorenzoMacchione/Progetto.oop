@@ -42,7 +42,7 @@ La seguente tabella mostra le richieste possibili.
 |GET             |/getAllCity                    |restituisce le città con le relative coordinate          |
 |GET             |/getAllMetadata                |restituisce gli alias utilizzati                         |
 |GET             |/data                          |restituisce i tweet con i relativi dati                  |
-|GET             |/data?filter="filtro"          |restituisce i tweet con i relativi dati filtrati secondo il filtro passato (i filtri sulle città richiedono di passare anche la distanza "dist" espressa in Km) |
+|GET             |/data?filter="filtro"          |restituisce i tweet con i relativi dati filtrati secondo il filtro passato|
 |GET             |/Stat?field="nome"             |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato fatta sull'intero dataset     |
 |GET             |/Stat?field="nome"&filter="filtro"  |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato fatta sul data-set filtrato (i filtri sulle città richiedono di passare anche la distanza "dist") espressa in Km|
 |GET             |/getTweetForCity?distanza= "distanza in Km"          |restituisce le città con il numero di tweet entro la distanza |
@@ -51,28 +51,39 @@ La seguente tabella mostra le richieste possibili.
 
 
 
-La segunete tabella mostra i filtri disponibili
 
+I filtri vanno composti seguendo una delle forme nella seguente tabella
+
+| filtro	 | Descrizione                                |Esempio                                     |
+|----------------|--------------------------------------------|--------------------------------------------|
+|{"dato":{"operatore":valore}} |applica l'operatore sul dato        |{"followers":{"$gt":1000}}            	   |
+|{"dato":{"descrittore":valore}} |applica il descrittore sul dato        |{"followers":{"$not":1000}}            	   |
+|{"$and":[test1,test2,...] |applica tutti i filtri insieme      |{"$and":[{"followers":{"$gt":1000}}, {"followers":{"$not":1000}}]} |
+|{"$or":[test1,test2,...] |applica tutti i filtri ma basta uno solo per ammettere il dato|{"$or":[{"followers":{"$gt":1000}}, {"followers":{"$not":1000}}]} |
+
+La tabella seguente illustra gli operatori disponibili
 
 | Nome operatore | Descrizione                                |Esempio                                     |
 |----------------|--------------------------------------------|--------------------------------------------|
-|Greater         |maggiore (valido per campi numerici)        |{"EsAlbArr":{"Greater":100000}}            |
-|Less            |minore (valido per campi numerici)          |{"EsAlbArr":{"Less":100000}}               |
-|Included        |compreso tra  (valido per campi numerici)   |{"EsAlbArr":{"Included":[100,5000]}}      |     
-|NotIncluded     |non compreso tra  (valido per campi numerici) |{"EsAlbArr":{"NotIncluded":[100,5000]}} |
-|In              |trova una corrispondeza con i valori dell'array (valido per stringhe)|	{"ProvDest":{"In":["Roma"]}}|
+|$gt             |maggiore (valido per campi numerici)        |{"followers":{"$gt":1000}}            	   |
+|$gte            |maggiore o uguale (valido per campi numerici)        |{"followers":{"$gte":1000}}            	   |
+|$lt             |minore (valido per campi numerici)          |{"followers":{"$lt":1000}}                  |
+|$lte            |minore o uguale (valido per campi numerici)          |{"followers":{"$lt":1000}}                  |
+|$bt		 |compreso tra  (valido per campi numerici)   |{"lat":{"$bt":[100,5000]}}      |     
+|$cc		 |cerchio intorno a una città (valido solo per geo) |{"geo":{"$cc":{"city":"Ancona","range":100}}} |
+|$cp             |cerchio intorno a un punto* (valido solo per geo)|	{"geo":{"$cp":{"lat":45.735,"lon":7.35,"range":100}}}|
 |Nin             |non trova una corrispondeza con i valori dell'array (valido per stringhe)|	{"ProvDest":{"Nin":["Roma","Viterbo"]}}|
 
+*L'italia ha latitudine compresa tra 36.7 e 46.7, longitudine compresa tra 6.8 e 15.5.
+
+La tabella seguente illustra i descrittori disponibili
+| Nome operatore | Descrizione                                |Esempio                                     |
+|----------------|--------------------------------------------|--------------------------------------------|
+|$not            |diverso (valido per campi numerici)        |{"followers":{"$not":1000}}            	   |
+|$in		 |uguale ad almeno uno dei valori  (valido per campi numerici)   |{"lat":{"$in":[100,5000]}}      | 
+|$nin		 |diverso da tutti i valori  (valido per campi numerici)   |{"lat":{"$nin":[100,5000]}}      | 
 
 
-Inoltre è possibile combinare più filtri, per fare questo, è sufficiente specificare il modo in cui si vogliono combinare i fitlri utilizzati: **and** oppure **or** prima dell'operatore, utilizzando il comando *"type"*. Ad esempio il filtraggio seguente selezionarà i record che hanno EsAlbPres compreso tra 10 e 1000 ma abbiano anche nel campo ProvDest Roma:                                                                                                               
-
-`{
-	"EsAlbPres":{"Included":[10,1000]},
-	"ProvDest":{"type":"and","In":["Roma"]}    
-}`
-
-note: è possibile inserire un filtro per ogni campo contemporaneamente, concatenati nel modo desiderato(**and/or**).
 
 ## Sviluppo
 
