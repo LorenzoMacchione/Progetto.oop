@@ -22,7 +22,7 @@ La nostra applicazione permette di richiedere mediante API REST (GET) con rotte 
 
 AGGIUNGERE IMMAGINE DIAGRAMMA DELLE CHIAMATE
 
-<img src="https://aangrw.db.files.1drv.com/y4mEhRW6T5TB0O0Mho701IYnQXQdDOJF2mQIUPNw_R71E2z5FatOYllR78DkHytWX_s-z2WZ69ykeVfNwLCduu1MFWid4BNliwPp9FYPhB1qqdcoyDOqG2T03lKZzPiVdvYNbpL37gHcxiQJ5Eux9jGGmxijLTeBb1gtI7e4VUQezMYX_q2GLxltMmZADDv3Nse?width=1633&height=961&cropmode=none" width="500"/>
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/Use%20Case%20Diagram.jpg" width="500"/>
 
 
 
