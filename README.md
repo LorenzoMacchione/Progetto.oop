@@ -45,7 +45,8 @@ La seguente tabella mostra le richieste possibili.
 |GET             |/data?filter="filtro"          |restituisce i tweet con i relativi dati filtrati secondo il filtro passato|
 |GET             |/Stat?field="nome"             |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato fatta sull'intero dataset     |
 |GET             |/Stat?field="nome"&filter="filtro"  |restituisce una statistica sul "nome" del dato o di un capoluogo di regione            specificato fatta sul data-set filtrato (i filtri sulle città richiedono di passare anche la distanza "dist") espressa in Km|
-|GET             |/getTweetForCity?distanza= "distanza in Km"          |restituisce le città con il numero di tweet entro la distanza |
+|GET             |/getTweetForCity?distanza= "distanza in Km"          |restituisce le città con il numero di tweet entro la    distanza |
+|GET            |/setAllTweet?qt=quantità&arg="argomento"   |modifica i tweet nel data-set
 
 
 
@@ -116,28 +117,35 @@ La tabella seguente illustra i descrittori disponibili
 ### Chiamate
 
 * **Chiamata GET /getAllTweet**
-ControllerClass esegue una chiamata tramite il metodo `getArrayMetadata`, il quale inizializza un ArrayList di metadata e lo restituisce. ControllerClass trasforma quest ultimo in Json e lo ritorna al client.
-<img src="https://rpqn0a.db.files.1drv.com/y4mkdQHH_Pa33tVJuMamcWrvjIjrXnrRZVW0xQ9mGEJyXwnD_3q-sIDR5AOVWyu1jvLzTLHZFAq8x3hJWBUUgxCQHVI6KiMOMFZvJEve0KDmmGp8tJx4yat-iDa1-l0RgrCK1NvHRJFpHsNA76rTKROeFBnReGhmgTeOrE6hruyr1At0_sXHdUf1KDT-940q3Ue?width=1950&height=407&cropmode=none" width="1000"/>
+Il controller esegue una chiamata tramite il metodo `getAllTweet`, il quale restituisce il Json contenente i tweet. ControllerClass lo ritorna al client.
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_getAllTweet2.jpg" width="1000"/>
 
-* **Chiamata GET /getAllCity **
-ControllerClass esegue una chiamata tramite il metodo `getRecords`, il quale restituisce l'intero ArrayList di Record. ControllerClass trasforma quest ultimo in Json e lo ritorna al client.
-<img src="https://rp8dug.db.files.1drv.com/y4mbH1IgQ_orEo7XdkN503RzT0b-r4DAnOLFlmZzzoZQpqnQMIiLre9d4b_WW-dfBJEKDrm0tY0LovdwqtAVDP7pVt8JOeKEZ2Z-kDsZAfsaecyxaOuCDX1paW5P5rAxP19vTI7wIbkfNm9N2WaqPhquJvBY2Hxvc9kzDk4l1Y3_KyMel0t1yIFzoi2wpHxVcHF?width=1894&height=391&cropmode=none" width="1000"/>
+* **Chiamata GET /getAllCity**
+Il controller esegue una chiamata tramite il metodo `getAllCity`, il quale restituisce il Json contenente le città. ControllerClass lo ritorna al client.
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_getAllCityJo2.jpg" width="1000"/>
 
 * **Chiamata GET /getAllMetadata**
-ControllerClass esegue una chiamata tramite `jsonParserColumn` alla classe JsonParser, che insieme a `jsonParserOperator` effetueranno il parsing del body ricevuto in modo ciclico. Estrapolate le informazioni relative al filtraggio richiesto, verranno utilizzate da `instanceFilter` per istanziare nuovi oggetti filtro prendedoli della classi contenute nel package com.esame.util.filter. A questo punto tramite `runFilter` si potrà eseguire il filtraggio e restituire a ControllerClass l'Arraylist di Record filtrato da consegnare al Client in formato Json. 
-<img src="https://aaoddw.db.files.1drv.com/y4mwkin2INnRgju0sxyVK0HJtkbNBEyC8jhb4p7mCstWce3Nn1WqeWR2I73_GYlyMYxx2Ke5jsURAdKonsHU6TR4iIvoIB2tPFIhQTFDhdikZcTkT6HYKx47yAsDzPujeiUFo-LbRxwpyNlQ9zNz3H7iqM9MfTEZTNRt6fcRPzCABahPQzkr0gcv8RQd4f7p-jA?width=1920&height=644&cropmode=none" width="1000"/>
+Il controller esegue una chiamata tramite il metodo `getAllMetadata`, il quale restituisce il Json contenente i metadata. ControllerClass lo ritorna al client. 
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_getAllMetadata2.jpg" width="1000"/>
 
-* **Chiamata GET /stats?field="nome"**
-L'arrayList di Record sul quale fare il calcolo delle statisctiche viene ottenuto nel modo spiegato nella richiesta *GET /data*.
-Viene passato il nome del campo su cui si desidera effettuare la statistica a `instanceStatsCalculator`, il quale instanzia l'oggetto `StasCalculator` corretto dalle classi contenute nel package com.esame.util.statistics.
-Quest'ultimo tramite il metodo `run` eseguirà il calocolo statistico che verrà incapsulato come oggetto stats, e restituito in formato Json al client
-<img src="https://rpq8cg.db.files.1drv.com/y4mqN_XoixpKzN2XSjgqCpET4UC0nZyeijxp7cN1ECPoJZJcNMsKXh1_uanj2Q_oTSN_cSiY0KmlYp51ltFvw5et3g7Bo1sQOKHagwd7odz0amXwz9_ghYZGr7xYyViC1CnqEdkOetP4RZHAntaWdpG5BfpIYBksOrWFsHE7W-ner0NZ8cyUWz2Vj6Ffc79Ajza?width=1902&height=587&cropmode=none" width="1000"/>
+* **Chiamata GET /data**
+Il controller crea un filtro tramite `GenericFilterTweet` che poi sarà usato da `Filtring` per filtrare l'array di tweet.
+Tramite `GetFilteredTweet` il controller otterà l'array filtrato che poi sara fatto tornare al client.
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_getData2.jpg" width="1000"/>
 
-* **Chiamata POST /stats?field="nome"**
-L'arrayList di Record sul quale calcolare le statisctiche viene ottenuto nel modo spiegato nella richiesta *POST /data*.
-Il calcolo statistico viene eseguito come spiegato nella richiesta *GET /stats?field="nome"*
-<img src="https://rp85ow.db.files.1drv.com/y4m7xIPFBfoBq4XEhcwG1jFk31GgrW9wpRnrzkVkDOPuN-gp-HQASwJwpkceTeAInI6UbkIuKP7nlKddclBxIQI0cpg8Tqp_GlGvxwoIe8UP31IsU4RrjpHVcDxRXNoYESYcJaAWHeL6ijlJEwiSpKDmhMpeZVmzevg4TkTCQKB7g4e2iE_a7S2JTHEwhSimaWt?width=1922&height=860&cropmode=none" width="1000"/>
+* **Chiamata GET /Stat?field="nome"**
+Il controller crea un filtro tramite `GenericFilterTweet` che poi sarà usato da `Filtring` per filtrare l'array di tweet.
+Tramite `GetFilteredTweet` il controller otterà l'array filtrato che poi sara passato a al costruttore di `Stat`.
+Tramite `GetStatJo` il controller ottiene le statistiche come Json che poi verrano ritornate al client.
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_getStat.jpg" width="1000"/>
 
+* **Chiamata GET /getTweetForCity?distanza= "distanza in Km"**
+Il controller genera la statistica `TweetForCity` che poi verrà applicata tramite `AppStat` ritornandola come json che verra restituita al client.
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_getTweetForCity2.jpg" width="1000"/>
+
+* **Chiamata GET /setAllTweet?qt=quantità&arg="argomento"**
+Il controller chiama `setAlltTweet` per andare a modificare l'array di tweet.
+<img src="https://github.com/LorenzoMacchione/Progetto.oop/blob/master/uml/_setAlltweet2.jpg" width="1000"/>
 
 ## Software utilizzati
 
