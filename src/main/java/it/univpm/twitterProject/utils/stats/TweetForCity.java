@@ -9,7 +9,7 @@ import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.service.Distanza;
 
 /**
- * Rappresenta il numero di tweet nelle varie città.
+ * Rappresenta il numero di tweet nelle varie citta'.
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano

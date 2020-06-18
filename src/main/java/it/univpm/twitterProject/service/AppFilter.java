@@ -22,9 +22,9 @@ public class AppFilter {
 	/**
 	 * Metodo che applica il filtro
 	 * 
-	 * @param Filter: l'oggeto che implementa l'interfaccia filter
-	 * @return ArrayList: l'arraylist dei tweet filtrati
-	 * @throws TweetsNotFoundException: se dopo il filtraggio l'array è vuoto
+	 * @param f oggetto che implementa l'interfaccia filter
+	 * @return ArrayList l'arraylist dei tweet filtrati
+	 * @throws TweetsNotFoundException se dopo il filtraggio l'array è vuoto
 	 */
 
 	public ArrayList<Tweet> Filtring(Filter f) throws TweetsNotFoundException {

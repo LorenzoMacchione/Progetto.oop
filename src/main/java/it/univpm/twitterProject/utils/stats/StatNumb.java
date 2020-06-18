@@ -48,16 +48,12 @@ public class StatNumb<E> implements Stat {
 				ob = m.invoke(obj);
 				o = ((Number) ob).doubleValue();
 			} catch (NoSuchMethodException | SecurityException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if (qtDati == 0) {

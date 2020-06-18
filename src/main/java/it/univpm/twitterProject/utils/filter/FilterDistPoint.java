@@ -22,8 +22,8 @@ public class FilterDistPoint {
 	/**
 	 * Funzione che applica il filtro
 	 * 
-	 * @param Coord: coordinata da analizzare
-	 * @return boolean: risposta del filtro
+	 * @param tco coordinata tipo Coord da analizzare
+	 * @return boolean risposta del filtro
 	 */
 
 	public boolean app(Coord tco) {

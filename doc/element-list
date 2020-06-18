@@ -1,0 +1,9 @@
+it.univpm.twitterProject
+it.univpm.twitterProject.controller
+it.univpm.twitterProject.database
+it.univpm.twitterProject.exception
+it.univpm.twitterProject.model
+it.univpm.twitterProject.service
+it.univpm.twitterProject.service.parser
+it.univpm.twitterProject.utils.filter
+it.univpm.twitterProject.utils.stats

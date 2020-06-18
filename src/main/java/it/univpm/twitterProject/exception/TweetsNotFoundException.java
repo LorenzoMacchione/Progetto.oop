@@ -1,7 +1,7 @@
 package it.univpm.twitterProject.exception;
 
 /**
- * Rappresenta un'eccezzione personalizzata
+ * Rappresenta un'eccezione personalizzata
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano

@@ -20,9 +20,9 @@ public class parserTweet extends parser {
 	/**
 	 * Metodo che esegue il parsing
 	 * 
-	 * @param String: stringa del JsonObject
-	 * @return ArrayList: rapresentante i tweet
-	 * @throws ParserException: se ci sono problemi durante il parsing
+	 * @param data stringa del JsonObject
+	 * @return ArrayList rapresentante i tweet
+	 * @throws ParseException se ci sono problemi durante il parsing
 	 */
 
 	public static ArrayList<Tweet> parsing(String data) throws ParseException {

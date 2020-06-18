@@ -59,8 +59,8 @@ public class GenericFilterTweet implements Filter {
 	/**
 	 * funzione che realizza un "and" su i test
 	 * 
-	 * @param Tweet: su cui eseguire i test
-	 * @return boolean: il risultato dei test
+	 * @param g Tweet su cui eseguire i test
+	 * @return boolean il risultato dei test
 	 */
 
 	public boolean and(Tweet g) {
@@ -75,8 +75,8 @@ public class GenericFilterTweet implements Filter {
 	/**
 	 * funzione che realizza un "or" su i test
 	 * 
-	 * @param Tweet: su cui eseguire i test
-	 * @return boolean: il risultato dei test
+	 * @param g Tweet su cui eseguire i test
+	 * @return boolean il risultato dei test
 	 */
 
 	public boolean or(Tweet g) {
@@ -91,9 +91,9 @@ public class GenericFilterTweet implements Filter {
 	/**
 	 * funzione che esegue il test
 	 * 
-	 * @param Tweet: su cui eseguire il test
-	 * @param Test:  test da eseguire
-	 * @return boolean: il risultato dei test
+	 * @param tweet Tweet su cui eseguire il test
+	 * @param t Test tipo Test da eseguire
+	 * @return boolean il risultato dei test
 	 */
 
 	public boolean tester(Test t, Tweet tweet) {
@@ -104,16 +104,12 @@ public class GenericFilterTweet implements Filter {
 					null);
 			o = m.invoke(tweet);
 		} catch (NoSuchMethodException | SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (t.getDescriptor() != "") {
@@ -145,13 +141,12 @@ public class GenericFilterTweet implements Filter {
 	/**
 	 * funzione che esegue il filtraggio
 	 * 
-	 * @param Tweet: su cui eseguire il filtraggio
-	 * @return boolean: il risultato del filtraggio
+	 * @param t Tweet su cui eseguire il filtraggio
+	 * @return boolean il risultato del filtraggio
 	 */
 
 	@Override
 	public boolean filter(Tweet t) {
-		// TODO Auto-generated method stub
 		if (and) {
 			return and(t);
 		} else if (or) {

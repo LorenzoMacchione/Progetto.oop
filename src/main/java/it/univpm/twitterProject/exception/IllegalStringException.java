@@ -1,7 +1,7 @@
 package it.univpm.twitterProject.exception;
 
 /**
- * Rappresenta un'eccezzione personalizzata che estende
+ * Rappresenta un'eccezione personalizzata che estende
  * DataIllegalArgumentException
  * 
  * @author Lorenzo Macchione

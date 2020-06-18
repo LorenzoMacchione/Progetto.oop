@@ -16,9 +16,9 @@ public class Distanza {
 	/**
 	 * Calcola la distanza tra due coordinate
 	 * 
-	 * @param Coord: coordinate del primo punto
-	 * @param Coord: coordinate del secondo punto
-	 * @return double: distanza tra i due punti
+	 * @param coord1 coordinate tipo Coord del primo punto
+	 * @param coord2 coordinate tipo Coord del secondo punto
+	 * @return double distanza tra i due punti
 	 */
 	public double CalcDist(Coord coord1, Coord coord2) {
 

@@ -35,7 +35,7 @@ public class simpleRestController {
 	/**
 	 * Risponde alla chiamata GET /getAllTweet
 	 * 
-	 * @return JsonObject contenente l'arrey con tutti i tweet salvati nel dataset
+	 * @return JsonObject contenente l'array con tutti i tweet salvati nel dataset
 	 */
 
 	@GetMapping("/getAllTweet")
@@ -71,10 +71,10 @@ public class simpleRestController {
 	 * dei tweet, se i parametri non vengono passati viene fatto tornare alle
 	 * condizioni iniziali
 	 * 
-	 * @param arg: Argomento dei tweet su cui si vuole lavorare; default:terremoto
-	 * @param qt:  Quantità di tweet su cui si vuole lavorare; default: 100
+	 * @param arg Argomento dei tweet su cui si vuole lavorare (default:terremoto)
+	 * @param qt  Quantita' di tweet su cui si vuole lavorare (default: 100)
 	 * @return Un messaggio sulla riuscita dell'operazione
-	 * @throws ParseException
+	 * @throws ParseException eccezione che gestiste il parser
 	 */
 
 	@GetMapping("/setTweet")
@@ -97,12 +97,12 @@ public class simpleRestController {
 	/**
 	 * Risponde alla chiamata GET /data
 	 * 
-	 * @param filter: filtro da applicare sul dataset di tweet
+	 * @param f stringa rappresentante il filtro da applicare
 	 * @return JsonObject contenente l'array dei tweet filtrato secondo il filtro
 	 *         passato se presente
-	 * @throws FilterNotFoundException: se il filtro è stato passato in maniera
+	 * @throws FilterNotFoundException se il filtro è stato passato in maniera
 	 *                                  errata
-	 * @throws TweetsNotFoundException: se dopo aver applicato il filtro nno si è
+	 * @throws TweetsNotFoundException se dopo aver applicato il filtro nno si è
 	 *                                  ottenuto nessun tweet valido
 	 */
 
@@ -123,18 +123,18 @@ public class simpleRestController {
 	/**
 	 * Risponde alla chiamata GET /Stat
 	 * 
-	 * @param field:  il metadato o la città su cui si vuole effettuare la
+	 * @param field il metadato o la citta' su cui si vuole effettuare la
 	 *                statistica
-	 * @param filter: filtro da applicare sul dataset di tweet
-	 * @param dist:   distanza in chilometri necessaria per le statistiche sulle
-	 *                città
-	 * @return JsonArray contenete la rapresentazione delle statistiche
-	 * @throws DataIllegalArgumentException: se i dati non sono stati passati in
+	 * @param filter filtro da applicare sul dataset di tweet
+	 * @param dist distanza in chilometri necessaria per le statistiche sulle
+	 *             citta'
+	 * @return JSONArray contenete la rapresentazione delle statistiche
+	 * @throws DataIllegalArgumentException se i dati non sono stati passati in
 	 *                                       maniera corretta
-	 * @throws FilterNotFoundException:      se il filtro è stato passato in maniera
-	 *                                       errata
-	 * @throws TweetsNotFoundException:      se dopo aver applicato il filtro non si
-	 *                                       è ottenuto nessun tweet valido
+	 * @throws FilterNotFoundException se il filtro è stato passato in maniera
+	 *                                 errata
+	 * @throws TweetsNotFoundException se dopo aver applicato il filtro non si
+	 *                                 è ottenuto nessun tweet valido
 	 */
 
 	@GetMapping("/Stat")
@@ -186,8 +186,8 @@ public class simpleRestController {
 	/**
 	 * Risponde alla chiamata GET /getTweetforCity
 	 * 
-	 * @param distanza: distanza in chilometri dalla città
-	 * @return JsonArray contente la lista di città con la ripettiva quantità di
+	 * @param distanza distanza in chilometri dalla citta'
+	 * @return JsonArray contente la lista di citta' con la ripettiva quantita' di
 	 *         tweet entro la distanza passata
 	 */
 

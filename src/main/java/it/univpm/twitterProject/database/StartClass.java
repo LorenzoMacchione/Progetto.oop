@@ -144,7 +144,7 @@ public class StartClass {
 	}
 
 	/**
-	 * Getter che restituisce tutte le città come JsonObject
+	 * Getter che restituisce tutte le citta' come JsonObject
 	 * 
 	 * @return JsonObject contenente tutte le città
 	 */
@@ -158,7 +158,7 @@ public class StartClass {
 	/**
 	 * Inizializza i tweet richiamando il parser
 	 * 
-	 * @throws ParseException: se ci sono errori durante il parsing
+	 * @throws ParseException se ci sono errori durante il parsing
 	 */
 
 	public static void setAllTweet() throws ParseException {
@@ -167,10 +167,12 @@ public class StartClass {
 	}
 
 	/**
-	 * Inizializza i tweet con argomento e quantità a scelta richiamando il parser
+	 * Inizializza i tweet con argomento e quantita' a scelta richiamando il parser
 	 * 
-	 * @throws ParseException:          se ci sono errori durante il parsing
-	 * @throws TweetsNotFoundException: se non ci sono tweet sull'argomento
+	 * @param arg Argomento dei tweet su cui si vuole lavorare (default:terremoto) 
+	 * @param qt Quantita' di tweet su cui si vuole lavorare (default: 100)
+	 * @throws ParseException se ci sono errori durante il parsing
+	 * @throws TweetsNotFoundException se non ci sono tweet sull'argomento
 	 */
 
 	public static void setAllTweet(String arg, int qt) throws ParseException, TweetsNotFoundException {
@@ -214,8 +216,10 @@ public class StartClass {
 	}
 
 	/**
-	 * Scarica l'elenco dei tweet con argomento e quantità a scelta
+	 * Scarica l'elenco dei tweet con argomento e quantita' a scelta
 	 * 
+	 * @param arg Argomento dei tweet su cui si vuole lavorare (default:terremoto)
+	 * @param qt Quantita' di tweet su cui si vuole lavorare (default: 100) 
 	 * @return Una stringa rapresentante in jsonobject i tweet
 	 */
 
@@ -248,9 +252,9 @@ public class StartClass {
 	}
 
 	/**
-	 * legge l'elenco delle città
+	 * legge l'elenco delle citta'
 	 * 
-	 * @return Una stringa rapresentante in jsonobject le città
+	 * @return Una stringa rapresentante in jsonobject le citta'
 	 */
 
 	public static String downloadCity() {

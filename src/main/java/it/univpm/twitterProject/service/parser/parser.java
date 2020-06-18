@@ -16,9 +16,9 @@ public class parser {
 	/**
 	 * Esegue il parser su una stringa ottenendone un JsonObject
 	 * 
-	 * @param String: stringa su cui eseguire il parsing
-	 * @return JSONObject: JsonObject ottenuto dalla stringa
-	 * @throws ParseException. se ci sono errori durante il parsing
+	 * @param Json stringa su cui eseguire il parsing
+	 * @return JSONObject JsonObject ottenuto dalla stringa
+	 * @throws ParseException se ci sono errori durante il parsing
 	 */
 
 	public static JSONObject parserJO(String Json) throws ParseException {

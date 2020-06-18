@@ -7,7 +7,7 @@ import org.json.simple.parser.ParseException;
 import it.univpm.twitterProject.model.Coord;
 
 /**
- * Classe per eseguire il parsing delle città
+ * Classe per eseguire il parsing delle citta'
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano
@@ -18,9 +18,9 @@ public class parserCap extends parser {
 	/**
 	 * Metodo che esegue il parsing
 	 * 
-	 * @param String: stringa del JsonObject
-	 * @return HashMap: rapresentante le città con relative coordinate
-	 * @throws ParserException: se ci sono problemi durante il parsing
+	 * @param data stringa del JsonObject
+	 * @return HashMap rapresentante le città con relative coordinate
+	 * @throws ParseException se ci sono problemi durante il parsing
 	 */
 
 	public HashMap<String, Coord> parsing(String data) throws ParseException {

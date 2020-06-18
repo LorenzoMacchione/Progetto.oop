@@ -13,7 +13,7 @@ public interface Filter {
 	
 	/** questo metodo restituisce True se il tweet rispetta le caratteristiche 
 	 * richeste del filtro che implementa l'interfaccia.
-	 * @param tweet su cui si vuol esegurire la verifica.
+	 * @param t Tweet su cui si vuol esegurire la verifica.
 	 * @return risposta.
 	*/
 	

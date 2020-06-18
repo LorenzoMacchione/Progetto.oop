@@ -9,7 +9,7 @@ import it.univpm.twitterProject.model.Tweet;
 import it.univpm.twitterProject.utils.filter.FilterDistCap;
 
 /**
- * Rappresenta le statistiche relative a una città.
+ * Rappresenta le statistiche relative a una citta'.
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano

@@ -1,7 +1,7 @@
 package it.univpm.twitterProject.exception;
 
 /**
- * Rappresenta un'eccezzione personalizzata di tipo ClassNotFoundException
+ * Rappresenta un'eccezione personalizzata di tipo ClassNotFoundException
  * 
  * @author Lorenzo Macchione
  * @author Donato Mariano

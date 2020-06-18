@@ -19,10 +19,10 @@ public class FilterUtils {
 	/**
 	 * Controlla che il dato rispetti il filtro
 	 * 
-	 * @param Object: dato da analizzare
-	 * @param String: rapresentante l'operatore da applicare
-	 * @param Object: dato a cui fare riferimento
-	 * @return boolean: che rappresenta se il dato rispetta il filtro
+	 * @param value Object dato da analizzare
+	 * @param operator stringa rappresentante l'operatore da applicare
+	 * @param th Object dato a cui fare riferimento
+	 * @return boolean che rappresenta se il dato rispetta il filtro
 	 */
 
 	public static boolean check(Object value, String operator, Object th) {
