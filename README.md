@@ -139,9 +139,10 @@ Il calcolo statistico viene eseguito come spiegato nella richiesta *GET /stats?f
 <img src="https://rp85ow.db.files.1drv.com/y4m7xIPFBfoBq4XEhcwG1jFk31GgrW9wpRnrzkVkDOPuN-gp-HQASwJwpkceTeAInI6UbkIuKP7nlKddclBxIQI0cpg8Tqp_GlGvxwoIe8UP31IsU4RrjpHVcDxRXNoYESYcJaAWHeL6ijlJEwiSpKDmhMpeZVmzevg4TkTCQKB7g4e2iE_a7S2JTHEwhSimaWt?width=1922&height=860&cropmode=none" width="1000"/>
 
 
-## Softwere utilizzati
+## Software utilizzati
 
 * [Eclipse](https://www.eclipse.org/) - ambiente di sviluppo integrato
+* [UMLDesigner] (http://www.umldesigner.org/) - ambiente di creazione uml
 * [Spring Boot](https://spring.io/projects/spring-boot) - framework per  sviluppo applicazioni Java
 * [Maven](https://maven.apache.org/) - strumento di gestione di progetti
 
