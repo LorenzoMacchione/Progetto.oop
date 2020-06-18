@@ -3,7 +3,7 @@
 La nostra applicazione è Web Service, un sistema software che risponde alle chiamate di un Client (applicazione, sito web, Postman) comunicando tramite il protocollo HTTP, che permette all'client di ottenere informazioni su un data-set di tweet. Attraverso Spring Boot, è stato possibile creare questo software che lancia l'intera applicazione web, compreso il web server integrato.
 
 Il Data-set rappresenta l'elenco dei tweet riguardanti un argomento dato (di default "terremoto") scritti in italiano, di questi tweet viene preso in considerazione:
-- per l'autore id, mome, nome rapresentativo e la quantità di follower;
+- per l'autore id, nome, nome rapresentativo e la quantità di follower;
 - per il tweet, testo, data di creazione, e coordinate corrispondenti al luogo dove è stato creato.
 
 La nostra applicazione permette di richiedere mediante API REST (GET) con rotte distinte:
